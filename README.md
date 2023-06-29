@@ -14,7 +14,7 @@ With Hide and Sleep, players will have fun while:
 
 ----
 ## Wireframes
-![Hide and Sleep Wireframe](src/images/wireframe.png)  
+![Hide and Sleep Wireframe](src/assets/images/wireframe.png)  
 
 ----
 ## Technologies, Libraries, and APIs

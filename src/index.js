@@ -1,1 +1,6 @@
-console.log("Hello, webpack is definitely working right now!");
+import Example from "./scripts/testingExample"
+
+document.addEventListener("DOMContentLoaded", () => {
+  const main = document.getElementById("testing-main");
+  new Example(main);
+})
