@@ -66,6 +66,12 @@ body {
 }
 
 #game-title {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border: 1px solid red;
+}
+
+#game-title-text {
   font-size: 60px;
   font-family: "Chewy", sans-serif;
   border: 2px solid red;
@@ -80,6 +86,7 @@ body {
   animation-name: game-title-animation;
   animation-duration: 3s;
   animation-iteration-count: infinite;
+  display: inline;
 }
 
 @keyframes game-title-animation {
@@ -88,11 +95,51 @@ body {
     -webkit-text-stroke: 2px black;
   }
 }
-#title-icon {
-  width: 90px;
-  height: 90px;
+.title-icon {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  text-transform: capitalize;
 }
 
+#title-icon1 {
+  font-size: 30px;
+  animation-name: title-icon-animation1;
+}
+
+#title-icon2 {
+  font-size: 45px;
+  animation-name: title-icon-animation2;
+}
+
+#title-icon3 {
+  font-size: 60px;
+  animation-name: title-icon-animation3;
+}
+
+@keyframes title-icon-animation1 {
+  0% {
+    color: #A4835F;
+  }
+  100% {
+    color: none;
+  }
+}
+@keyframes title-icon-animation2 {
+  0% {
+    color: #A4835F;
+  }
+  100% {
+    color: none;
+  }
+}
+@keyframes title-icon-animation3 {
+  0% {
+    color: #A4835F;
+  }
+  100% {
+    color: none;
+  }
+}
 #game-frame {
   margin-top: 20px;
   margin-bottom: 20px;
