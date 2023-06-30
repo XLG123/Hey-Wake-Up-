@@ -41,7 +41,8 @@ There are some exciting features that will be implemented in the future:
 - Giving players the freedom to change the theme of the game and uploading images to represent the students and the teacher
 - More levels will be added.  
 
-Current Progress: 
+----
+## Current Progress: 
 - [ ] General game layout in wireframe
 - [ ] General game layout on GitHub Pages
 - [ ] Setting up game home page
