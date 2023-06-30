@@ -66,14 +66,40 @@ body {
 }
 
 #game-title {
+  font-size: 60px;
   font-family: "Chewy", sans-serif;
   border: 2px solid red;
+  word-spacing: 0.15em;
+  background-image: url("/src/assets/images/woodenBackground1.jpg");
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px black;
+  padding: 10px 5px;
+  animation-name: game-title-animation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes game-title-animation {
+  100% {
+    background-image: url("/src/assets/images/woodenBackground2.jpg");
+    -webkit-text-stroke: 2px black;
+  }
+}
+#title-icon {
+  width: 90px;
+  height: 90px;
 }
 
 #game-frame {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 2px solid blue;
+  width: 80%;
+  height: 80%;
+  text-align: center;
 }
 
 footer {
