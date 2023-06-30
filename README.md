@@ -14,7 +14,8 @@ With Hide and Sleep, players will have fun while:
 
 ----
 ## Wireframes
-![Hide and Sleep Wireframe](src/assets/images/wireframe.png)  
+![Hide and Sleep Wireframe](src/assets/images/wireframe.png)
+[Figma Wireframe](https://www.figma.com/proto/2qE9LmP9WiDT8S0dl0k2zp/JSP-Game-Wireframe?page-id=0%3A1&type=design&node-id=120-205&viewport=-1512%2C-175%2C0.5&t=8VkJ8Yarj4JbQxU7-1&scaling=scale-down&starting-point-node-id=120%3A205&mode=design)(updating it every day with features being added or removed)
 
 ----
 ## Technologies, Libraries, and APIs
