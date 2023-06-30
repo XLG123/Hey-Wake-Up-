@@ -20,7 +20,7 @@ body {
   font-family: "Chewy", sans-serif;
   padding: 10px 5px;
   word-spacing: 0.15em;
-  background-image: url("../assets/images/woodenBackground1.jpg");
+  background-image: url("../src/assets/images/woodenBackground1.jpg");
   background-repeat: repeat;
   background-clip: text;
   -webkit-background-clip: text;
@@ -33,7 +33,7 @@ body {
 
 @keyframes game-title-animation {
   100% {
-    background-image: url("../assets/images/woodenBackground2.jpg"); 
+    background-image: url("../src/assets/images/woodenBackground2.jpg"); 
     -webkit-text-stroke: 2px black;
   }
 }
