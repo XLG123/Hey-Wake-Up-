@@ -8,9 +8,10 @@ The game will require the player to keep pressing on the students that are falli
 ----
 ## Functionality & MVPs  
 With Hide and Sleep, players will have fun while:  
-- Start and pausing the game
-- Press on the students that are falling asleep
-- to be updated...
+- Helping students to take a nap in the classroom when the teacher turn his/her back against the students
+- Competing with the timer to help as much students as possible
+- Challenging themselves with the impossible level 6
+- more details will be updated...
 
 ----
 ## Wireframes
@@ -20,19 +21,40 @@ With Hide and Sleep, players will have fun while:
 ----
 ## Technologies, Libraries, and APIs
 This project will be implemented with the following technologies:  
-`Canvas API`: render the game graphics  
-`Anime.css`: apply animation effects when players click on the screen
+`Canvas API`: render the game graphics (Might not need Canvas API to render game graphics, to be updated)  
+<!-- `Anime.css`: apply animation effects when players click on the screen -->
+`font-awesome`: Used font-awesome api to render icons  
+`google-fonts`: Used google font api for creative fonts  
 
 ----
 ## Implementation Timeline
-- __Friday Afternoon & Weekend__: Finish building the UI for one level, set up most of the css styling for the students and the rest of the game page. Have the Canvas API ready for rendering the game view.
-- __Monday__: Continue working on the game view, and add a home page to allow players to modify some settings of the game such as muting the background music.
-- __Tuesday__: Continue working on the game view until everything is ready for hosting on GitHub Pages. If time allows, adding five more levels to the game.
-- __Wednesday__: Deploy to GitHub pages and make sure the game renders correctly on both Windows and Mac.
+- __Friday Afternoon & Weekend__: Finish building the UI for one level, set up most of the css styling for the students and the rest of the game page. Ready to render the game home page by the end of Friday Night and have the first three levels ready on Monday morning.
+- __Monday__: Continue working on the game view, and allow players to modify some settings of the game such as muting the background music and sound effects.
+- __Tuesday__: Continue working on the game view until everything is ready for hosting on GitHub Pages. If time allows, adding more levels to the game.
+- __Wednesday__: Deploy to GitHub pages and make sure the game renders correctly on both Windows and Mac, and on different browsers.
 - __Thursday Morning__: Check if there is any bugs in the game, and if time allows, fix the bugs and rewrite README with the most updated information.
 
 ----
 ## Bonus features
-There are some exciting features that will be implemented in the future:  
-- Store a player's highest score and show it at the top right corner
-- Giving players the freedom to change the theme of the game
+There are some exciting features that will be implemented in the future:
+- Storing a player's highest score and show it at the top right corner
+- Giving players the freedom to change the theme of the game and uploading images to represent the students and the teacher
+- More levels will be added.  
+
+Current Progress: 
+- [ ] General game layout in wireframe
+- [ ] General game layout on GitHub Pages
+- [ ] Setting up game home page
+- [ ] Setting up game rules page
+- [ ] Setting up first level
+- [ ] Setting up the remaining five levels
+
+Core features Implemented:
+- [ ] Players will be able to go from home page to rules page
+- [ ] Players will be able to start the game from level 1 or choose any levels they want
+- [ ] Players will be able to click on the Tutorial button to watch a clip on YouTube on how to play the game
+- [ ] Players will be able to press on the students to help them sleep within the time frame that is set by the timer for each level
+- [ ] Players will be able to mute the soundtrack and sound effects of the game
+- [ ] Players will be able to see how many fail attempts they have left for the game
+
+To be updated daily

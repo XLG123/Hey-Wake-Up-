@@ -1,5 +1,0 @@
-class GameFrame {
-  constructor() {
-    
-  }
-}

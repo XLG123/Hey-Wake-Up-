@@ -1,6 +1,6 @@
-import Example from "./scripts/testingExample"
+import GameFrame from "./scripts/gameFrame";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // const main = document.getElementById("testing-main");
-  // new Example(main);
+  const gameFrame = document.getElementById("game-frame");
+  new GameFrame(gameFrame);
 })
