@@ -11,7 +11,8 @@ body {
 }
 
 #game-title {
-  margin-top: 25px;
+  margin-top: 15px;
+  cursor: pointer;
 }
 
 #game-title-text {
@@ -72,15 +73,6 @@ body {
 @keyframes title-icon-animation3 {
   0% {color: #A4835F}
   100% {color: none}
-}
-
-#game-frame {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px solid blue;
-  width: 80%;
-  height: 80%;
-  text-align: center;
 }
 
 footer {

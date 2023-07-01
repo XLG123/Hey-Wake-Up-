@@ -1,4 +1,13 @@
 #game-frame {
-  border: 2px solid brown;
+  display: block;
   border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 80vw;
+  height: 82vh;
+  background-image: url("../src/assets/images/gameBG.jpg");
+  box-sizing: border-box;
+  border: 2px solid gray;
+  box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  opacity: 0.43;
 }
