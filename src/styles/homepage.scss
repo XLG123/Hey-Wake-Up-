@@ -1,0 +1,50 @@
+@use "theme" as t;
+
+#blackboard {
+  font-family: "Cousine", sans-serif;
+  position: absolute;
+  border-radius: 10px;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: linear-gradient(rgba(230, 190, 164, 0.75), rgba(248, 228, 216, 0.8)) ;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  height: 35vh;
+}
+
+#run-button {
+  // border-style: none;
+  border-radius: 10px;
+  width: 15%;
+  height: 10%;
+}
+
+#sound-buttons {
+
+  color: rgba(110, 68, 59, 0.75);
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  li {
+    list-style-type: none;
+    display: inline;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  li:first-child {
+    margin-right: 20px;
+  }
+
+
+  // should be removed after all the buttons have been added
+  li:hover {
+    color: t.$buttonClicked-color;
+  }
+
+}

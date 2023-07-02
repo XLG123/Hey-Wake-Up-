@@ -66,7 +66,7 @@ body {
 }
 
 #game-title {
-  margin-top: 15px;
+  margin-top: 5px;
   cursor: pointer;
 }
 
@@ -201,15 +201,55 @@ footer a:visited {
 }
 
 #game-frame {
-  display: block;
+  position: relative;
   border-radius: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
   width: 80vw;
   height: 82vh;
-  background-image: url("../src/assets/images/gameBG.jpg");
+  background-image: url("../src/assets/images/gameBG.png");
   box-sizing: border-box;
   border: 2px solid gray;
   box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.5);
-  opacity: 0.43;
+}
+
+#blackboard {
+  font-family: "Cousine", sans-serif;
+  position: absolute;
+  border-radius: 10px;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: linear-gradient(rgba(230, 190, 164, 0.75), rgba(248, 228, 216, 0.8));
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  height: 35vh;
+}
+
+#run-button {
+  border-radius: 10px;
+  width: 15%;
+  height: 10%;
+}
+
+#sound-buttons {
+  color: rgba(110, 68, 59, 0.75);
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+#sound-buttons li {
+  list-style-type: none;
+  display: inline;
+  cursor: pointer;
+  padding: 5px;
+}
+#sound-buttons li:first-child {
+  margin-right: 20px;
+}
+#sound-buttons li:hover {
+  color: #2c1b17;
 }
