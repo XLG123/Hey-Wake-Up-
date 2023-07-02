@@ -16,7 +16,39 @@ class GameFrame {
     blackboard.setAttribute("id", "blackboard");
 
     const homepageText = document.createElement("div");
-    homepageText.innerHTML = "<p>class Student{ constructor() {this.sleep() = true;}}</p>";
+    homepageText.classList.add("blackboard-textcontent-hp");
+
+    const firstLine = document.createElement("p");
+    // firstLine.innerText = "class Student {";
+    firstLine.setAttribute("id", "first-line");
+
+    const secondLine = document.createElement("p");
+    // secondLine.innerText = "constructor() {";
+    secondLine.setAttribute("id", "second-line");
+
+    const thirdLine = document.createElement("p");
+    // thirdLine.innerText = "this.sleepy = true;";
+    thirdLine.setAttribute("id", "third-line");
+
+    const fourthLine = document.createElement("p");
+    // fourthLine.innerText = "this.goToSleep(sleepy);";
+    fourthLine.setAttribute("id", "fourth-line");
+
+    const fifthLine = document.createElement("p");
+    // fifthLine.innerText = "}";
+    fifthLine.setAttribute("id", "fifth-line");
+
+    const sixthLine = document.createElement("p");
+    // sixthLine.innerText = "}";
+    sixthLine.setAttribute("id", "sixth-line");
+
+    homepageText.appendChild(firstLine);
+    homepageText.appendChild(secondLine);
+    homepageText.appendChild(thirdLine);
+    homepageText.appendChild(fourthLine);
+    homepageText.appendChild(fifthLine);
+    homepageText.appendChild(sixthLine);
+
     blackboard.appendChild(homepageText);
 
     const runButton = document.createElement("button");
