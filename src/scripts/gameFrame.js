@@ -81,9 +81,20 @@ class GameFrame {
     for (let i = 1; i <= 10; ++i) {
       const student = document.createElement("div");
       const studentImg = document.createElement("img");
+      const studentTooltipText = document.createElement("span");
+      
       this.placeRandomStudentImage(studentImg);
       studentImg.setAttribute("id", `student${i}-image`);
+      studentImg.classList.add("student-image");
+
+      const tooltipText = this.placeStudentTooltipText(studentImg);
+      studentTooltipText.setAttribute("id", `student${i}-tooltip-text`);
+      studentTooltipText.classList.add("student-tooltip-text");
+      studentTooltipText.innerHTML = tooltipText;
+      
       student.appendChild(studentImg);
+      student.appendChild(studentTooltipText);
+
       student.setAttribute("id", `student${i}`);
       students.appendChild(student);
     }
@@ -103,6 +114,25 @@ class GameFrame {
 
     const randomImgNum =  Math.floor(Math.random() * allStudents.length);
     studentImg.src = allStudents[randomImgNum];
+  }
+
+  placeStudentTooltipText(studentImg) {
+    let tooltipText = "";
+    const srcIdentifier = studentImg.getAttribute("src").slice(30);
+    if (srcIdentifier === "energyTop.png") {
+      tooltipText = "Energy: 100%";
+    } else if (srcIdentifier === "energyMiddle.png") {
+      tooltipText = "Energy: 70%";
+    } else if (srcIdentifier === "energyBottom.png") {
+      tooltipText = "Energy: 50%";
+    } else if (srcIdentifier === "sleepyTop.png") {
+      tooltipText = "Energy: 40%";
+    } else if (srcIdentifier === "sleepyMiddle.png") {
+      tooltipText = "Energy: 25%";
+    } else if (srcIdentifier === "sleepyBottom.png") {
+      tooltipText = "Energy: 5%";
+    }
+    return tooltipText;
   }
   
   addSoundButtons(element) {

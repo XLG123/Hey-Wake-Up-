@@ -325,6 +325,28 @@
     75% { transform: rotate(-5deg); }
     100% { transform: rotate(1deg); }
   }
+
+  .student-tooltip-text {
+    visibility: hidden;
+    width: 8vw;
+    position: absolute;
+    text-align: center;
+    font-size: 1.3vw;
+    background-color: rgba(248, 228, 216, 0.5);
+    border-radius: 10px;
+    border: 1px solid rgb(201, 198, 198); 
+    margin-left: 1vw;
+  }
+
+  #student5-tooltip-text, #student10-tooltip-text {
+    margin-left: 0;
+    margin-right: 1vw;
+    right: 10vw;
+  }
+
+  .student-image:hover + .student-tooltip-text {
+    visibility: visible;
+  }
 }
 
 #sound-buttons {

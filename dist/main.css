@@ -694,6 +694,25 @@ footer a:visited {
     transform: rotate(1deg);
   }
 }
+.students .student-tooltip-text {
+  visibility: hidden;
+  width: 8vw;
+  position: absolute;
+  text-align: center;
+  font-size: 1.3vw;
+  background-color: rgba(248, 228, 216, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgb(201, 198, 198);
+  margin-left: 1vw;
+}
+.students #student5-tooltip-text, .students #student10-tooltip-text {
+  margin-left: 0;
+  margin-right: 1vw;
+  right: 10vw;
+}
+.students .student-image:hover + .student-tooltip-text {
+  visibility: visible;
+}
 
 #sound-buttons {
   color: rgba(110, 68, 59, 0.75);
