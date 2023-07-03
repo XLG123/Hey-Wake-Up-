@@ -9,6 +9,7 @@
   right: 0;
   margin-left: auto;
   margin-right: auto;
+  font-weight: 500;  
   background: linear-gradient(rgba(230, 190, 164, 0.75), rgba(248, 228, 216, 0.8)) ;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
   width: 40vw;
@@ -217,6 +218,88 @@
     background: linear-gradient(rgba(110, 68, 59, 0.2), rgba(110, 68, 59, 0.55));
     box-shadow: none;
     color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+#teacher {
+  position: absolute;
+  top: 32vh;
+  right: 14vw;
+
+  #teacher-image {
+    width: 4.2vw;
+    height: 4.2vw;
+    animation-name: scale-up;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes scale-up {
+    0% {transform: scale(0.9)}
+    50% {transform: scale(1.1)}
+    100% {transform: scale(0.9)}
+  }
+}
+
+.students {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  row-gap: 25px;
+  text-align: center;
+  position: absolute;
+  top: 52vh;
+  left: 0;
+  right: 0;
+
+  img {
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+  }
+
+  img:hover {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
+  #student1-image,
+  #student3-image,
+  #student4-image,
+  #student6-image,
+  #student10-image {
+    animation-name: shake-image1;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes shake-image1{
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  #student2-image,
+  #student5-image,
+  #student7-image,
+  #student8-image,
+  #student9-image {
+    animation-name: shake-image2;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes shake-image2{
+    0% { transform: rotate(-1deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(1deg); }
   }
 }
 

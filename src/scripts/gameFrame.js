@@ -8,6 +8,8 @@ class GameFrame {
   buildPage(element) {
   
     this.addBlackboard(element);
+    this.addTeacher(element);
+    this.addStudents(element);
     this.addSoundButtons(element);
   }
 
@@ -19,27 +21,21 @@ class GameFrame {
     homepageText.classList.add("blackboard-textcontent-hp");
 
     const firstLine = document.createElement("p");
-    // firstLine.innerText = "class Student {";
     firstLine.setAttribute("id", "first-line");
 
     const secondLine = document.createElement("p");
-    // secondLine.innerText = "constructor() {";
     secondLine.setAttribute("id", "second-line");
 
     const thirdLine = document.createElement("p");
-    // thirdLine.innerText = "this.sleepy = true;";
     thirdLine.setAttribute("id", "third-line");
 
     const fourthLine = document.createElement("p");
-    // fourthLine.innerText = "this.goToSleep(sleepy);";
     fourthLine.setAttribute("id", "fourth-line");
 
     const fifthLine = document.createElement("p");
-    // fifthLine.innerText = "}";
     fifthLine.setAttribute("id", "fifth-line");
 
     const sixthLine = document.createElement("p");
-    // sixthLine.innerText = "}";
     sixthLine.setAttribute("id", "sixth-line");
 
     homepageText.appendChild(firstLine);
@@ -58,6 +54,50 @@ class GameFrame {
     blackboard.appendChild(runButton);
 
     element.appendChild(blackboard);
+  }
+
+  addTeacher(element) {
+    const teacher = document.createElement("div");
+    teacher.setAttribute("id", "teacher");
+
+    const teacherImg = document.createElement("img");
+    teacherImg.src = "../src/assets/images/teacher/cool.png";
+    teacherImg.setAttribute("id", "teacher-image");
+
+    teacher.appendChild(teacherImg);
+
+    element.appendChild(teacher);
+  } 
+  
+  addStudents(element) {
+    const students = document.createElement("div");
+    students.classList.add("students");
+
+    for (let i = 1; i <= 10; ++i) {
+      const student = document.createElement("div");
+      const studentImg = document.createElement("img");
+      this.placeRandomStudentImage(studentImg);
+      studentImg.setAttribute("id", `student${i}-image`);
+      student.appendChild(studentImg);
+      student.setAttribute("id", `student${i}`);
+      students.appendChild(student);
+    }
+
+    element.appendChild(students);
+  }
+
+  placeRandomStudentImage(studentImg) {
+    const allStudents = [
+      "../src/assets/images/students/energyTop.png",
+      "../src/assets/images/students/energyMiddle.png",
+      "../src/assets/images/students/energyBottom.png",
+      "../src/assets/images/students/sleepyTop.png",
+      "../src/assets/images/students/sleepyMiddle.png",
+      "../src/assets/images/students/sleepyBottom.png"
+    ]
+
+    const randomImgNum =  Math.floor(Math.random() * allStudents.length);
+    studentImg.src = allStudents[randomImgNum];
   }
   
   addSoundButtons(element) {
