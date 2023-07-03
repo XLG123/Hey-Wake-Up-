@@ -183,6 +183,7 @@ footer a:visited {
   border-radius: 5px;
   padding-left: 5px;
   padding-right: 5px;
+  margin-right: 30px;
   box-shadow: 0 0 5px;
   background-color: #f2e7db;
 }
@@ -198,6 +199,28 @@ footer a:visited {
 }
 #source-code-link:hover .fa-github-alt, #source-code-link:hover span {
   color: #454545;
+}
+
+#credits {
+  border: 1px solid darkslategray;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: 0 0 5px;
+  background-color: #f2e7db;
+}
+#credits .fa-book {
+  color: #999999;
+}
+#credits .fa-book + span {
+  color: rgb(115, 123, 130);
+}
+
+#credits:hover {
+  box-shadow: 3px 3px 1px #604040;
+}
+#credits:hover .fa-book, #credits:hover span {
+  color: #604040;
 }
 
 #game-frame {
@@ -554,12 +577,19 @@ footer a:visited {
     content: "}";
   }
 }
-#blackboard #run-button {
-  display: block;
-  border-style: none;
+#blackboard .blackboard-buttons {
   margin-top: 0.05vw;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
+  width: 30vw;
+}
+#blackboard .blackboard-buttons .blackboard-button {
+  display: inline-block;
+  border-style: none;
+  margin-top: 1vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
   width: 6vw;
   font-size: 1.3vw;
   border-radius: 10px;
@@ -568,7 +598,7 @@ footer a:visited {
   color: rgb(82, 57, 52);
   background-color: transparent;
 }
-#blackboard #run-button:hover {
+#blackboard .blackboard-buttons .blackboard-button:hover {
   background: linear-gradient(rgba(110, 68, 59, 0.2), rgba(110, 68, 59, 0.55));
   box-shadow: none;
   color: white;
@@ -731,4 +761,36 @@ footer a:visited {
 }
 #sound-buttons li:hover {
   color: #2c1b17;
+}
+
+#game-rules-container {
+  color: rgb(82, 57, 52);
+  margin-left: 3vw;
+  margin-right: 3vw;
+  overflow-y: scroll;
+}
+#game-rules-container #rules-title {
+  margin-top: 1vw;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6vw;
+}
+#game-rules-container .rule {
+  font-size: 1.2vw;
+  list-style-type: disc;
+  margin-bottom: 1.5vw;
+  font-weight: 500;
+}
+#game-rules-container #game-rule1 {
+  margin-top: 1.5vw;
+}
+#game-rules-container #teacher-imgs {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+#game-rules-container #teacher-imgs #teacher-img1 {
+  width: 3vw;
+}
+#game-rules-container #teacher-imgs #teacher-img2 {
+  width: 3vw;
 }

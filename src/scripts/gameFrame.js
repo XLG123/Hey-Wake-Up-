@@ -1,7 +1,10 @@
+import { showRules } from "./rulesPage";
+
 class GameFrame {
   constructor(element) {
     this.element = element;
     this.buildPage(this.element);
+    this.rulesButtonPressed();
     this.bgmToggle();
   }
 
@@ -47,11 +50,29 @@ class GameFrame {
 
     blackboard.appendChild(homepageText);
 
-    const runButton = document.createElement("button");
-    runButton.setAttribute("id", "run-button");
-    runButton.innerHTML = "Run";
+    const blackboardButtons = document.createElement("div");
+    blackboardButtons.classList.add("blackboard-buttons");
 
-    blackboard.appendChild(runButton);
+    const levelsButton = document.createElement("button");
+    levelsButton.setAttribute("id", "levels-button");
+    levelsButton.classList.add("blackboard-button");
+    levelsButton.innerHTML = "Levels";
+
+    const startButton = document.createElement("button");
+    startButton.setAttribute("id", "start-button");
+    startButton.classList.add("blackboard-button");
+    startButton.innerHTML = "Start";
+
+    const rulesButton = document.createElement("button");
+    rulesButton.setAttribute("id", "rules-button");
+    rulesButton.classList.add("blackboard-button");
+    rulesButton.innerHTML = "Rules";
+
+    blackboardButtons.appendChild(levelsButton);
+    blackboardButtons.appendChild(startButton);
+    blackboardButtons.appendChild(rulesButton);
+
+    blackboard.appendChild(blackboardButtons);
 
     element.appendChild(blackboard);
   }
@@ -124,7 +145,7 @@ class GameFrame {
     } else if (srcIdentifier === "energyMiddle.png") {
       tooltipText = "Energy: 70%";
     } else if (srcIdentifier === "energyBottom.png") {
-      tooltipText = "Energy: 50%";
+      tooltipText = "Energy: 55%";
     } else if (srcIdentifier === "sleepyTop.png") {
       tooltipText = "Energy: 40%";
     } else if (srcIdentifier === "sleepyMiddle.png") {
@@ -194,6 +215,32 @@ class GameFrame {
       } else {
         bgmIcon.style.color = "rgba(110, 68, 59, 0.75)";
       }
+    })
+  }
+
+  rulesButtonPressed() {
+    const rulesButton = document.querySelector("#rules-button");
+
+    rulesButton.addEventListener("click", () => {
+      const teacher = document.querySelector("#teacher");
+      teacher.style.display = "none";
+
+      const students = document.querySelector(".students");
+      students.style.display = "none";
+
+      const levelsButton = document.querySelector("#levels-button");
+      levelsButton.style.display = "none";
+
+      const startButton = document.querySelector("#start-button");
+      startButton.style.display = "none";
+
+      const rulesButton = document.querySelector("#rules-button");
+      rulesButton.style.display = "none";
+
+      const blackboardTextContent = document.querySelector(".blackboard-textcontent-hp");
+      blackboardTextContent.style.display = "none";
+      
+      showRules();
     })
   }
 

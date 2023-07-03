@@ -1,0 +1,39 @@
+#game-rules-container {
+
+  color: rgb(82, 57, 52);
+  margin-left: 3vw;
+  margin-right: 3vw;
+  overflow-y: scroll;
+
+  #rules-title {
+    margin-top: 1vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.6vw;
+  }
+
+  .rule {
+    font-size: 1.2vw;
+    list-style-type: disc;
+    margin-bottom: 1.5vw;
+    font-weight: 500;
+  }
+
+  #game-rule1 {
+    margin-top: 1.5vw;
+  }
+
+  #teacher-imgs {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    #teacher-img1 {
+      width: 3vw;
+    }
+
+    #teacher-img2 {
+      width: 3vw;
+    }
+
+  }
+}
