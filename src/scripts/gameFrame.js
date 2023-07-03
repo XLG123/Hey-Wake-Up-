@@ -61,7 +61,7 @@ class GameFrame {
     teacher.setAttribute("id", "teacher");
 
     const teacherImg = document.createElement("img");
-    teacherImg.src = "../src/assets/images/teacher/cool.png";
+    teacherImg.src = "src/assets/images/teacher/cool.png";
     teacherImg.setAttribute("id", "teacher-image");
 
     teacher.appendChild(teacherImg);
