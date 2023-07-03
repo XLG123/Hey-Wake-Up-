@@ -72,7 +72,7 @@ body {
 
 #game-title-text {
   display: inline;
-  font-size: 60px;
+  font-size: 3.5vw;
   font-family: "Chewy", sans-serif;
   padding: 10px 5px;
   word-spacing: 0.15em;
@@ -100,17 +100,17 @@ body {
 }
 
 #title-icon1 {
-  font-size: 30px;
+  font-size: 1.5vw;
   animation-name: title-icon-animation1;
 }
 
 #title-icon2 {
-  font-size: 45px;
+  font-size: 2.5vw;
   animation-name: title-icon-animation2;
 }
 
 #title-icon3 {
-  font-size: 60px;
+  font-size: 3.5vw;
   animation-name: title-icon-animation3;
 }
 
@@ -587,6 +587,7 @@ footer a:visited {
   animation-name: scale-up;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+  cursor: pointer;
 }
 @keyframes scale-up {
   0% {
@@ -598,6 +599,26 @@ footer a:visited {
   100% {
     transform: scale(0.9);
   }
+}
+#teacher #teacher-tooltip-text {
+  visibility: hidden;
+  width: 8vw;
+  position: absolute;
+  text-align: center;
+  font-size: 1.3vw;
+  background-color: rgba(248, 228, 216, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgb(201, 198, 198);
+  margin-left: 1vw;
+}
+#teacher #teacher-image:hover {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+#teacher #teacher-image:hover + #teacher-tooltip-text {
+  visibility: visible;
 }
 
 .students {

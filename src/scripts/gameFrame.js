@@ -66,6 +66,11 @@ class GameFrame {
 
     teacher.appendChild(teacherImg);
 
+    const teacherTooltipText = document.createElement("span");
+    teacherTooltipText.innerHTML = "Teacher";
+    teacherTooltipText.setAttribute("id", "teacher-tooltip-text");
+    teacher.appendChild(teacherTooltipText);
+
     element.appendChild(teacher);
   } 
   
