@@ -104,12 +104,12 @@ class GameFrame {
 
   placeRandomStudentImage(studentImg) {
     const allStudents = [
-      "../src/assets/images/students/energyTop.png",
-      "../src/assets/images/students/energyMiddle.png",
-      "../src/assets/images/students/energyBottom.png",
-      "../src/assets/images/students/sleepyTop.png",
-      "../src/assets/images/students/sleepyMiddle.png",
-      "../src/assets/images/students/sleepyBottom.png"
+      "src/assets/images/students/energyTop.png",
+      "src/assets/images/students/energyMiddle.png",
+      "src/assets/images/students/energyBottom.png",
+      "src/assets/images/students/sleepyTop.png",
+      "src/assets/images/students/sleepyMiddle.png",
+      "src/assets/images/students/sleepyBottom.png"
     ]
 
     const randomImgNum =  Math.floor(Math.random() * allStudents.length);
@@ -118,7 +118,7 @@ class GameFrame {
 
   placeStudentTooltipText(studentImg) {
     let tooltipText = "";
-    const srcIdentifier = studentImg.getAttribute("src").slice(30);
+    const srcIdentifier = studentImg.getAttribute("src").slice(27);
     if (srcIdentifier === "energyTop.png") {
       tooltipText = "Energy: 100%";
     } else if (srcIdentifier === "energyMiddle.png") {
@@ -144,7 +144,7 @@ class GameFrame {
     bgmBtnIcon.classList.add("fa");
     bgmBtnIcon.classList.add("fa-music");
     const bgm = document.createElement("audio");
-    bgm.src = "../src/assets/audios/gameBGM1.mp3";
+    bgm.src = "src/assets/audios/gameBGM1.mp3";
     bgm.type = "audio/mpeg";
     bgm.loop = true;
     bgmBtnIcon.appendChild(bgm);
