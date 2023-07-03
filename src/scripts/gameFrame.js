@@ -144,7 +144,7 @@ class GameFrame {
     bgmBtnIcon.classList.add("fa");
     bgmBtnIcon.classList.add("fa-music");
     const bgm = document.createElement("audio");
-    bgm.src = "src/assets/audios/gameBGM1.mp3?";
+    bgm.src = "src/assets/audios/gameBGM1.MP3";
     bgm.type = "audio/mpeg";
     bgm.loop = true;
     bgmBtnIcon.appendChild(bgm);
