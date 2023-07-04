@@ -234,7 +234,7 @@ class GameFrame {
     const startButton = document.querySelector("#start-button");
 
     startButton.addEventListener("click", () => {
-      const game = new Game();
+      const game = new Game(1);
     })
   }
 

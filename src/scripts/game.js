@@ -1,10 +1,11 @@
 import DifficultyGenerator from "./difficultyGenerator";
 
 export default class Game {
-  constructor() {
+  constructor(level) {
     // this.gameLevel = DifficultyGenerator.
+    this.level = level;
     this.removeHomePage();
-    this.openGamePage();
+    this.openGamePage(this.level);
   }
 
   removeHomePage() {
@@ -21,7 +22,9 @@ export default class Game {
     blackboardButtons.remove();
   }
 
-  openGamePage() {
-    
+  openGamePage(level) {
+    // if (level === 1) {
+    //   // DifficultyGenerator.
+    // }
   }
 }
