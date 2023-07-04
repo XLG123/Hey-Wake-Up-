@@ -1,8 +1,3 @@
-// const teacherCoolImg = document.createElement("img");
-// teacherCoolImg.setAttribute("id", "teacher-cool-img");
-
-// const studentsImg = document.createElement("img")
-
 const rulesArray = [
   "Each level will display 1 teacher and 4 to 16 students. The number of students display will be depending on the level.", // rule 1
 
@@ -17,13 +12,24 @@ const rulesArray = [
   "Each player has 3 hearts. If a player loses all three hearts, the game is over." // rule 6
 ];
 
-// const teacherImgSrc = [
-  
-// ];
+const teacherImgSrc = [
+  "src/assets/images/teacher/cool.png",
+  "src/assets/images/teacher/angry.png"
+];
+
+const studentImgSrc = [
+  "src/assets/images/students/energyTop.png",
+  "src/assets/images/students/energyMiddle.png",
+  "src/assets/images/students/energyBottom.png",
+  "src/assets/images/students/sleepyTop.png",
+  "src/assets/images/students/sleepyMiddle.png",
+  "src/assets/images/students/sleepyBottom.png"
+];
 
 const showRules = function() {
   expandBlackboard();
   addRules();
+  addHomePageButton();
 }
 
 const expandBlackboard = function() {
@@ -56,59 +62,115 @@ const addRules = function() {
 
   addTeacherImages(rules);
   addStudentImages(rules);
+  addScrollDownSign(rules);
 
   const blackboard = document.querySelector("#blackboard");
   blackboard.appendChild(rules);
 }
 
 const addTeacherImages = function(element) {
+  const teacherImgsTitle = document.createElement("div");
+  teacherImgsTitle.setAttribute("id", "teacher-images-title");
+  teacherImgsTitle.innerHTML = "Teacher's Mood:";
+  element.appendChild(teacherImgsTitle);
+
   const teacherImgs = document.createElement("div");
   teacherImgs.setAttribute("id", "teacher-imgs");
 
-  // Teacher Image Container 1
+  for (let i = 1; i <= 2; ++i) {
 
-  const teacherContainer1 = document.createElement("div");
-  teacherContainer1.setAttribute("id", "teacher-container1");
+    const teacherContainer = document.createElement("div");
+    teacherContainer.setAttribute("id", `teacher-container${i}`);
 
-  const teacherImg1 = document.createElement("img");
-  teacherImg1.setAttribute("id", "teacher-img1");
-  teacherImg1.src = "src/assets/images/teacher/cool.png";
-  
-  const teacher1text = document.createElement("div");
-  teacher1text.innerHTML = "Teacher mood: 100%";
-  
-  teacherContainer1.appendChild(teacherImg1);
-  teacherContainer1.appendChild(teacher1text);
-  
-  teacherImgs.appendChild(teacherContainer1);
-  teacherImgs.appendChild(teacherContainer1);
-  
-  // Teacher Image Container 2
-  
-  const teacherContainer2 = document.createElement("div");
-  teacherContainer2.setAttribute("id", "teacher-container2");
-  
-  const teacherImg2 = document.createElement("img");
-  teacherImg2.setAttribute("id", "teacher-img2");
-  teacherImg2.src = "src/assets/images/teacher/angry.png";
+    const teacherImg = document.createElement("img");
+    teacherImg.setAttribute("id", `teacher-img${i}`);
+    teacherImg.src = teacherImgSrc[i-1];
+    const teacherText = document.createElement("div");
+    const imgSrc = teacherImgSrc[i-1].slice(26);
 
-  const teacher2text = document.createElement("div");
-  teacher2text.innerHTML = "Teacher mood: 15%";
+    if (imgSrc === "cool.png") {
+      teacherText.innerHTML = "mood: 100%";
+    } else if (imgSrc === "angry.png") {
+      teacherText.innerHTML = "mood: 15%";
+    }
 
-  teacherContainer2.appendChild(teacherImg2);
-  teacherContainer2.appendChild(teacher2text);
-  
-  teacherImgs.appendChild(teacherContainer2);
-  teacherImgs.appendChild(teacherContainer2);
+    teacherContainer.appendChild(teacherImg);
+    teacherContainer.appendChild(teacherText);
+
+    teacherImgs.appendChild(teacherContainer);
+  }
 
   element.appendChild(teacherImgs);
-
 }
 
 const addStudentImages = function(element) {
+  const studentImgsTitle = document.createElement("div");
+  studentImgsTitle.setAttribute("id", "student-images-title");
+  studentImgsTitle.innerHTML = "Student Energy Status:";
+  element.appendChild(studentImgsTitle);
+
   const studentImgs = document.createElement("div");
   studentImgs.setAttribute("id", "student-imgs");
   
+  for (let i = 1; i <= 6; ++i) {
+    
+    const studentContainer = document.createElement("div");
+    studentContainer.setAttribute("id", `student-container${i}`);
+
+    const studentImg = document.createElement("img");
+    studentImg.setAttribute("id", `student-img${i}`);
+    studentImg.classList.add("student-images");
+    studentImg.src = studentImgSrc[i-1];
+    const studentText = document.createElement("div");
+    const imgSrc = studentImgSrc[i-1].slice(27);
+
+    if (imgSrc === "energyTop.png") {
+      studentText.innerHTML = "energy: 80% - 100%";
+    } else if (imgSrc === "energyMiddle.png") {
+      studentText.innerHTML = "energy: 65% - 79%";
+    } else if (imgSrc === "energyBottom.png") {
+      studentText.innerHTML = "energy: 50% - 64%";
+    } else if (imgSrc === "sleepyTop.png") {
+      studentText.innerHTML = "energy: 35% - 49%";
+    } else if (imgSrc === "sleepyMiddle.png") {
+      studentText.innerHTML = "energy: 15% - 34%";
+    } else if (imgSrc === "sleepyBottom.png") {
+      studentText.innerHTML = "energy: 0 - 14 %";
+    }
+
+    studentContainer.appendChild(studentImg);
+    studentContainer.appendChild(studentText);
+
+    studentImgs.appendChild(studentContainer);
+  } 
+
+  element.appendChild(studentImgs);
+}
+
+const addScrollDownSign = function(element) {
+  const scrollDownSign = document.createElement("i");
+  scrollDownSign.classList.add("fa");
+  scrollDownSign.classList.add("fa-arrow-down");
+  element.appendChild(scrollDownSign);
+
+  const scrollable = document.querySelector("#blackboard");
+  const oldPos = scrollable.scrollTop;
+  scrollable.addEventListener("scroll", () => {
+    const newPos = scrollable.scrollTop;
+    const scrollDownSign = document.querySelector(".fa-arrow-down");
+    if (newPos > oldPos) {
+      scrollDownSign.style.color = "rgba(82, 57, 32, 0.5)";
+      scrollDownSign.style.animationPlayState = "paused";
+    } else {
+      scrollDownSign.style.color = "rgb(82, 57, 32)";
+      scrollDownSign.style.animationPlayState = "running";
+    }
+  })
+}
+
+const addHomePageButton = function(element) {
+  const homePageButton = document.createElement("i");
+  // homePageButton.
 }
 
 export { showRules };

@@ -5,6 +5,7 @@ class GameFrame {
     this.element = element;
     this.buildPage(this.element);
     this.rulesButtonPressed();
+    // this.fadeScrollDownSign();
     this.bgmToggle();
   }
 
