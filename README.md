@@ -44,14 +44,14 @@ There are some exciting features that will be implemented in the future:
 ----
 ## Current Progress: 
 - [ ] General game layout in wireframe
-- [ ] General game layout on GitHub Pages
-- [ ] Setting up game home page
-- [ ] Setting up game rules page
+- [x] General game layout on GitHub Pages
+- [x] Setting up game home page
+- [x] Setting up game rules page
 - [ ] Setting up first level
 - [ ] Setting up the remaining five levels
 
 Core features Implemented:
-- [ ] Players will be able to go from home page to rules page
+- [x] Players will be able to go from home page to rules page
 - [ ] Players will be able to start the game from level 1 or choose any levels they want
 - [ ] Players will be able to click on the Tutorial button to watch a clip on YouTube on how to play the game
 - [ ] Players will be able to press on the students to help them sleep within the time frame that is set by the timer for each level
