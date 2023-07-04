@@ -7,9 +7,15 @@ const rulesArray = [
 
   "Players must ensure that all students have their energy above or equal to 50% when the timer ends.", // rule 4
 
-  "Players will have to click on each student to ",
+  "Players must click on each student to add energy points. Otherwise, they will lose energy every second it passes on the timer.", // rule 5
 
-  "There will be 6 levels in total with Level 1 being the easiest one and <span class='impossible-level'>Level 6</span> being the <span class='impossible-level'>Impossible Level</span>!" // rule 5
+  "<span class='levels'>Level 1</span>: <span>4</span> energy points each click", // rule 6
+
+  "<span class='levels'>Levels 2 and 3</span>: <span>5</span> energy points each click", // rule 7
+
+  "<span class='levels'>Levels 4 to 6</span>: <span>6</span> energy points each click", // rule 8
+
+  "There will be 6 levels in total with Level 1 being the easiest one and <span class='impossible-level'>Level 6</span> being the <span class='impossible-level'>Impossible Level</span>!" // rule 9
 ];
 
 const teacherImgSrc = [
@@ -55,7 +61,7 @@ const addRules = function() {
   const gameRules = document.createElement("ul");
   gameRules.setAttribute("id", "game-rules");
 
-  for (let i = 1; i <= 6; ++i) {
+  for (let i = 1; i <= 9; ++i) {
     const rule = document.createElement("li");
     rule.setAttribute("id", `game-rule${i}`);
     rule.innerHTML = rulesArray[i-1];
@@ -130,17 +136,17 @@ const addStudentImages = function(element) {
     const imgSrc = studentImgSrc[i-1].slice(27);
 
     if (imgSrc === "energyTop.png") {
-      studentText.innerHTML = "energy: 80% - 100%";
+      studentText.innerHTML = "energy: 100% - 80%";
     } else if (imgSrc === "energyMiddle.png") {
-      studentText.innerHTML = "energy: 65% - 79%";
+      studentText.innerHTML = "energy: 79% - 65%";
     } else if (imgSrc === "energyBottom.png") {
-      studentText.innerHTML = "energy: 50% - 64%";
+      studentText.innerHTML = "energy: 64% - 50%";
     } else if (imgSrc === "sleepyTop.png") {
-      studentText.innerHTML = "energy: 35% - 49%";
+      studentText.innerHTML = "energy: 49% - 34%";
     } else if (imgSrc === "sleepyMiddle.png") {
-      studentText.innerHTML = "energy: 15% - 34%";
+      studentText.innerHTML = "energy: 34% - 15%";
     } else if (imgSrc === "sleepyBottom.png") {
-      studentText.innerHTML = "energy: 0 - 14 %";
+      studentText.innerHTML = "energy: 14% - 0%";
     }
 
     studentContainer.appendChild(studentImg);
