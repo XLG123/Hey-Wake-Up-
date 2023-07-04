@@ -1,14 +1,14 @@
-# Hide and Sleep  
+# Hey! Wake Up! 
 
 ## Background  
-Hide and Sleep is a game that builds up on the concept of students taking a nap when the teachers have their backs against them. The game will have approximately 3 to 6 levels and the player will have 30 to 120 seconds to help the students nap depending on the level they are playing. Each level will display 4 to 30 students and 1 teacher on the web page. Each student will have a "sleepy status bar" showing how sleepy they are. The bar will have a linear gradident background between red and green with red being the most sleepy and green being energized. Each bar will have its own upside down triangular indicator that points at the current sleepy level of a student.  
+Hey! Wake Up! is a game that builds up on the concept of students taking a nap when the teachers have their backs against them. The game will have approximately 3 to 6 levels and the player will have 30 to 120 seconds to help the students wake up depending on the level they are playing. Each level will display 4 to 12 students and 1 teacher on the web page. Each student will have a energy level status showing how sleepy they are.
 
-The game will require the player to keep pressing on the students that are falling asleep and hold onto it as long as possible within the time frame. After the timer is up, the teacher will turn his/her face around and looking for students that are sleeping. If a student's sleepy status bar has the indicator pointing at the red side, the student will fall asleep in front of the teacher and the player will get one fail and required to repeat the level. A player is allowed to fail three attempts before the game is over. In order to win the game, the player must pass all the levels within three failed attempts.
+The game will require the player to keep clicking on the students that are falling asleep to give them more energy. After the timer is up, the teacher will turn his/her face around and looking for students that are sleeping. If a student's energy level status is below 50%, the player fails. To pass each level, the players must ensure all students have their energy above or equal to 50% when the timer ends.
 
 ----
 ## Functionality & MVPs  
 With Hide and Sleep, players will have fun while:  
-- Helping students to take a nap in the classroom when the teacher turn his/her back against the students
+- Helping students to wake up in the classroom when the teacher turn his/her back against the students
 - Competing with the timer to help as much students as possible
 - Challenging themselves with the impossible level 6
 - more details will be updated...
@@ -53,9 +53,7 @@ There are some exciting features that will be implemented in the future:
 Core features Implemented:
 - [x] Players will be able to go from home page to rules page
 - [ ] Players will be able to start the game from level 1 or choose any levels they want
-- [ ] Players will be able to click on the Tutorial button to watch a clip on YouTube on how to play the game
-- [ ] Players will be able to press on the students to help them sleep within the time frame that is set by the timer for each level
+- [ ] Players will be able to click on the students to help them wake up within the time frame that is set by the timer for each level
 - [ ] Players will be able to mute the soundtrack and sound effects of the game
-- [ ] Players will be able to see how many fail attempts they have left for the game
 
 To be updated daily

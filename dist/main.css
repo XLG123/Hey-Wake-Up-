@@ -807,8 +807,11 @@ footer a:visited {
 #game-rules-container #game-rule1 {
   margin-top: 1.5vw;
 }
-#game-rules-container #game-rule6 {
-  margin-bottom: 2vw;
+#game-rules-container #game-rule5 {
+  margin-bottom: 3vw;
+}
+#game-rules-container .impossible-level {
+  font-weight: 600;
 }
 #game-rules-container #teacher-images-title {
   font-size: 1.3vw;

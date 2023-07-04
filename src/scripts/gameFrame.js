@@ -1,11 +1,12 @@
 import { showRules } from "./rulesPage";
+import Game from "./game";
 
 class GameFrame {
   constructor(element) {
     this.element = element;
     this.buildPage(this.element);
+    this.startButtonPressed();
     this.rulesButtonPressed();
-    // this.fadeScrollDownSign();
     this.bgmToggle();
   }
 
@@ -216,6 +217,14 @@ class GameFrame {
       } else {
         bgmIcon.style.color = "rgba(110, 68, 59, 0.75)";
       }
+    })
+  }
+
+  startButtonPressed() {
+    const startButton = document.querySelector("#start-button");
+
+    startButton.addEventListener("click", () => {
+      const game = new Game();
     })
   }
 

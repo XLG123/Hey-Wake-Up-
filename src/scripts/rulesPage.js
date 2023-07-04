@@ -1,5 +1,5 @@
 const rulesArray = [
-  "Each level will display 1 teacher and 4 to 16 students. The number of students display will be depending on the level.", // rule 1
+  "Each level will display 1 teacher and 4 to 12 students. The number of students display will be depending on the level.", // rule 1
 
   "Each student will have an energy status bar showing their energy level with a matching Dog Image.", // rule 2
 
@@ -7,9 +7,9 @@ const rulesArray = [
 
   "Players must ensure that all students have their energy above or equal to 50% when the timer ends.", // rule 4
 
-  "If the player fails to complete this task, the player will lose one heart and will have to replay the current level.", // rule 5
+  "Players will have to click on each student to ",
 
-  "Each player has 3 hearts. If a player loses all three hearts, the game is over." // rule 6
+  "There will be 6 levels in total with Level 1 being the easiest one and <span class='impossible-level'>Level 6</span> being the <span class='impossible-level'>Impossible Level</span>!" // rule 5
 ];
 
 const teacherImgSrc = [
