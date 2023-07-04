@@ -1,3 +1,4 @@
+import { showLevels } from "./levelsPage";
 import { showRules } from "./rulesPage";
 import Game from "./game";
 
@@ -5,6 +6,7 @@ class GameFrame {
   constructor(element) {
     this.element = element;
     this.buildPage(this.element);
+    this.levelsButtonPressed();
     this.startButtonPressed();
     this.rulesButtonPressed();
     this.bgmToggle();
@@ -217,6 +219,14 @@ class GameFrame {
       } else {
         bgmIcon.style.color = "rgba(110, 68, 59, 0.75)";
       }
+    })
+  }
+
+  levelsButtonPressed() {
+    const levelsButton = document.querySelector("#levels-button");
+
+    levelsButton.addEventListener("click", () => {
+      showLevels();
     })
   }
 

@@ -788,6 +788,54 @@ footer a:visited {
   font-size: 1.5vw;
 }
 
+#levels-back-to-hp-btn {
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  color: rgba(82, 57, 52, 0.55);
+  cursor: pointer;
+}
+
+#levels-back-to-hp-btn:hover {
+  color: rgb(82, 57, 52);
+}
+
+#all-levels-container {
+  position: absolute;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  row-gap: 2vw;
+  column-gap: 2vw;
+  top: 2.5vw;
+  bottom: 2.5vw;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+#all-levels-container .level-button {
+  align-items: center;
+  display: grid;
+  width: 5vw;
+  height: 5vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  color: rgba(82, 57, 52, 0.8);
+  background-color: rgba(82, 57, 52, 0.2);
+  border: 3px solid rgba(82, 57, 52, 0.4);
+  box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  font-size: 2vw;
+  cursor: pointer;
+}
+#all-levels-container .level-button:hover {
+  font-weight: bold;
+  color: rgb(82, 57, 52);
+  border: 3px solid rgba(82, 57, 52, 0.5);
+  background-color: rgba(82, 57, 52, 0.5);
+  box-shadow: none;
+}
+
 #game-rules-container {
   color: rgb(82, 57, 52);
   margin-left: 3vw;
