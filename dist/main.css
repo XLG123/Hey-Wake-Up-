@@ -238,6 +238,17 @@ footer a:visited {
   border: 2px solid gray;
   box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
+#game-frame .fa-home {
+  font-size: 1.8vw;
+  position: absolute;
+  bottom: 1vw;
+  left: 1vw;
+  color: rgba(110, 68, 59, 0.8);
+  cursor: pointer;
+}
+#game-frame .fa-home:hover {
+  color: #2c1b17;
+}
 
 #blackboard {
   font-family: "Cousine", sans-serif;
@@ -758,8 +769,8 @@ footer a:visited {
 #sound-buttons {
   color: rgba(110, 68, 59, 0.75);
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 1vw;
+  right: 1vw;
 }
 #sound-buttons li {
   list-style-type: none;
@@ -855,4 +866,14 @@ footer a:visited {
   100% {
     transform: translateY(3px);
   }
+}
+#game-rules-container .fa-arrow-left {
+  position: absolute;
+  font-size: 1.5vw;
+  left: 2.5vw;
+  color: rgba(82, 57, 52, 0.55);
+  cursor: pointer;
+}
+#game-rules-container .fa-arrow-left:hover {
+  color: rgb(82, 57, 52);
 }

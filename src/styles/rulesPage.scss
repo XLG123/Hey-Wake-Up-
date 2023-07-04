@@ -79,4 +79,16 @@
     75% { transform: translateY(0px); }
     100% { transform: translateY(3px); }
   }
+
+  .fa-arrow-left {
+    position: absolute;
+    font-size: 1.5vw;
+    left: 2.5vw;
+    color:rgba(82, 57, 52, 0.55);
+    cursor: pointer;
+  }
+
+  .fa-arrow-left:hover {
+    color: rgb(82, 57, 52);
+  }
 }

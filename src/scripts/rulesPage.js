@@ -44,7 +44,12 @@ const addRules = function() {
 
   const rulesTitle = document.createElement("div");
   rulesTitle.setAttribute("id", "rules-title");
-  rulesTitle.innerHTML = "*** Rules ***";
+  addGoBackButton(rulesTitle);
+
+  const rulesTitleText = document.createElement("span");
+  rulesTitleText.setAttribute("id", "rules-title-text");
+  rulesTitleText.innerHTML = "*** Rules ***";
+  rulesTitle.appendChild(rulesTitleText);
   rules.appendChild(rulesTitle);
 
   const gameRules = document.createElement("ul");
@@ -168,9 +173,59 @@ const addScrollDownSign = function(element) {
   })
 }
 
-const addHomePageButton = function(element) {
+const addGoBackButton = function(element) {
+  const goBackButton = document.createElement("i");
+  goBackButton.classList.add("fa");
+  goBackButton.classList.add("fa-arrow-left");
+
+  element.appendChild(goBackButton);
+
+  goBackButton.addEventListener("click", () => {
+    backToHomePage();
+  })
+}
+
+const addHomePageButton = function() {
   const homePageButton = document.createElement("i");
-  // homePageButton.
+  homePageButton.classList.add("fa");
+  homePageButton.classList.add("fa-home");
+
+  const gameFrame = document.getElementById("game-frame");
+  gameFrame.appendChild(homePageButton);
+
+  homePageButton.addEventListener("click", () => {
+    backToHomePage();
+  })
+}
+
+const backToHomePage = function() {
+  const gameRules = document.getElementById("game-rules-container");
+  gameRules.remove();
+
+  const blackboard = document.querySelector("#blackboard");
+  shrinkBlackboard(blackboard);
+
+  const teacher = document.getElementById("teacher");
+  teacher.style.display = "";
+
+  const students = document.querySelector(".students");
+  students.style.display = "";
+
+  const homePageButton = document.querySelector(".fa-home");
+  homePageButton.remove();
+}
+
+const shrinkBlackboard = function(blackboard) {
+  blackboard.style.width = "40vw";
+  blackboard.style.height = "35vh";
+
+  const blackboardTextContentHP = blackboard.querySelector(".blackboard-textcontent-hp");
+  blackboardTextContentHP.style.display = "";
+
+  const blackboardButtons = blackboard.querySelectorAll(".blackboard-button");
+  blackboardButtons.forEach(blackboardButton => {
+    blackboardButton.style.display = "";
+  });
 }
 
 export { showRules };
