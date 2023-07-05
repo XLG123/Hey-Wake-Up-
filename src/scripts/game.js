@@ -114,6 +114,16 @@ export default class Game {
     //   currentLevelGetReadyMsg.remove();
     // }
 
+    const unclickable = document.querySelector("#unclickable");
+    if (unclickable) {
+      unclickable.remove();
+    }
+
+    const endGamePopUp = document.querySelector("#end-game-popup-container");
+    if (endGamePopUp) {
+      endGamePopUp.remove();
+    }
+
     const currentLevelTimer = document.querySelector("#current-level-timer");
     currentLevelTimer.remove();
 

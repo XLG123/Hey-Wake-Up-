@@ -7,8 +7,9 @@ export default class GameGenerator {
     this.generateLevelTitle(level);
     this.generateStudents(this.level);
     this.generateTimer(this.level);
-    this.decrementEnergyPoints(level);
-    this.endCurrentLevel(level);
+    this.decrementEnergyPoints(this.level);
+    this.updateColor(this.level);
+    this.endCurrentLevel(this.level);
   }
 
   generateLevelTitle(level) {
@@ -185,24 +186,23 @@ export default class GameGenerator {
   async clickableStudentsLv1(level) {
     await delayLoop5();
 
-    // let studentSize = 4;
-    // if (level ===)
-    for (let i = 1; i <= 4; ++i) {
+    let studentSize = 4;
+    if (level === 3) {
+      studentSize = 6;
+    } else if (level === 4) {
+      studentSize = 8;
+    } else if (level === 5) {
+      studentSize = 10;
+    } else if (level === 6) {
+      studentSize = 12;
+    }
+
+    for (let i = 1; i <= studentSize; ++i) {
       const studentImg = document.querySelector(`#level${level}-student-${i}-img`);
       studentImg.addEventListener("click", () => {
         this.incrementEnergyPoints(i);
       });
     }
-    
-    // if (level === 1) {
-    //   await delayLoop30();
-    //   for (let i = 1; i <= 4; ++i) {
-    //     const studentImg = document.querySelector(`#level${level}-student-${i}-img`);
-    //     studentImg.removeEventListener("click", () => {
-    //       this.incrementEnergyPoints(i);
-    //     });
-    //   }
-    // }
 
   }
 
@@ -235,11 +235,6 @@ export default class GameGenerator {
     const fcn = function() {
       students.forEach(student => {
         let energy = parseInt(student.innerHTML);
-        if (energy < 50) {
-          student.style.color = "darkred";
-        } else {
-          student.style.color = "black";
-        }
 
         if (energy - points < 0) {
           student.innerHTML = "0";
@@ -268,6 +263,33 @@ export default class GameGenerator {
 
   }
 
+  updateColor(level) {
+    const students = document.querySelectorAll(`.level${level}-energy-level`);
+    const _updateColor = setInterval(function() {
+      students.forEach(student => {
+        let energy = parseInt(student.innerHTML);
+        if (energy < 50) {
+          student.style.color = "darkred";
+        } else {
+          student.style.color = "black";
+        }     
+      });
+    }, 100);
+
+    let time = 30000;
+    if (level === 3 || level === 4) {
+      time = 60000;
+    } else if (level === 5) {
+      time = 90000;
+    } else if (level === 6) {
+      time = 120000;
+    }
+
+    setTimeout(function() {
+      _updateColor;
+    }, time);
+  }
+
   generateLevelTwo() {
 
   }
@@ -289,9 +311,67 @@ export default class GameGenerator {
   }
 
   endCurrentLevel(level) {
-    const time = parseInt(document.querySelector("#count-down-timer").innerHTML);
-    if (time === 0) {
-      // d
-    } 
+    this._endGame(level);
   }
+  
+  async _endGame(level) {
+    await delayLoop5();
+    if (level === 1 || level === 2) {
+      await delayLoop30();
+    } else if (level === 3 || level === 4) {
+      await delayLoop60();
+    } else if (level === 5) {
+      await delayLoop90();
+    } else if (level === 6) {
+      await delayLoop120();
+    }
+
+    const unclickable = document.createElement("div");
+    unclickable.setAttribute("id", "unclickable");
+
+    const studentContainerWidth = document.querySelector(`#level${level}-students`).offsetWidth;
+    const studentContainerHeight = document.querySelector(`#level${level}-students`).offsetHeight;
+
+    unclickable.style.width = `${studentContainerWidth}px`;
+    unclickable.style.height = `${studentContainerHeight}px`;
+
+    const game = document.querySelector("#game-frame");
+    game.appendChild(unclickable);
+
+    let win = true;
+
+    const allStudentsEnergyLevel = document.querySelectorAll(`.level${level}-energy-level`);
+
+    allStudentsEnergyLevel.forEach(studentEnergyLevel => {
+      if (parseInt(studentEnergyLevel.innerHTML) < 50) {
+        win = false;
+      }
+    });
+
+    this._endPopUp(level, win);
+  }
+  
+  _endPopUp(level, success) {
+    const popUpContainer = document.createElement("div");
+    const popUpMsg = document.createElement("div");
+    const popUpBtn = document.createElement("div");
+
+    if (success) {
+      popUpMsg.innerHTML = `Good Job! Every student is awake!!! You passed level ${level}`;
+    } else {
+      popUpMsg.innerHTML = `Sorry! You failed level ${level}, some students fell asleep.`;
+    }
+
+    popUpMsg.setAttribute("id", "end-game-popup-msg");
+    popUpBtn.setAttribute("id", "end-game-popup-btn");
+
+    popUpContainer.appendChild(popUpMsg);
+    popUpContainer.appendChild(popUpBtn);
+
+    popUpContainer.setAttribute("id", "end-game-popup-container");
+
+    const game = document.querySelector("#game-frame");
+    game.appendChild(popUpContainer);
+  }
+
 }

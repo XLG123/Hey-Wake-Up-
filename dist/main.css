@@ -969,6 +969,18 @@ footer a:visited {
   color: black;
 }
 
+#unclickable {
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  bottom: 2.5vw;
+  left: 30vw;
+  right: 30vw;
+}
+
+#end-game-popup-container {
+  background-color: green;
+}
+
 #level1-bb-text-container {
   font-family: "Cousine", sans-serif;
   position: absolute;
