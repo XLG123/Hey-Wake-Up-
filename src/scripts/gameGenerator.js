@@ -179,18 +179,31 @@ export default class GameGenerator {
       studentsContainer.appendChild(student);
     }
 
-    this.clickableStudentsLv1();
+    this.clickableStudentsLv1(this.level);
   }
 
-  async clickableStudentsLv1() {
+  async clickableStudentsLv1(level) {
     await delayLoop5();
 
+    // let studentSize = 4;
+    // if (level ===)
     for (let i = 1; i <= 4; ++i) {
-      const studentImg = document.querySelector(`#level1-student-${i}-img`);
+      const studentImg = document.querySelector(`#level${level}-student-${i}-img`);
       studentImg.addEventListener("click", () => {
         this.incrementEnergyPoints(i);
       });
     }
+    
+    // if (level === 1) {
+    //   await delayLoop30();
+    //   for (let i = 1; i <= 4; ++i) {
+    //     const studentImg = document.querySelector(`#level${level}-student-${i}-img`);
+    //     studentImg.removeEventListener("click", () => {
+    //       this.incrementEnergyPoints(i);
+    //     });
+    //   }
+    // }
+
   }
 
   incrementEnergyPoints(i) {
@@ -222,6 +235,12 @@ export default class GameGenerator {
     const fcn = function() {
       students.forEach(student => {
         let energy = parseInt(student.innerHTML);
+        if (energy < 50) {
+          student.style.color = "darkred";
+        } else {
+          student.style.color = "black";
+        }
+
         if (energy - points < 0) {
           student.innerHTML = "0";
         } else {
@@ -230,7 +249,23 @@ export default class GameGenerator {
         }
       });
     }
-    setInterval(fcn, 1000);
+
+    const decreasePoints = setInterval(fcn, 1000);
+
+    let stopTime = 30000;
+
+    if (level === 3 || level === 4) {
+      stopTime = 60000;
+    } else if (level === 5) {
+      stopTime = 90000;
+    } else if (level === 6) {
+      stopTime = 120000;
+    }
+
+    setTimeout(function() {
+      clearInterval(decreasePoints);
+    }, stopTime);
+
   }
 
   generateLevelTwo() {
@@ -254,6 +289,9 @@ export default class GameGenerator {
   }
 
   endCurrentLevel(level) {
-    
+    const time = parseInt(document.querySelector("#count-down-timer").innerHTML);
+    if (time === 0) {
+      // d
+    } 
   }
 }
