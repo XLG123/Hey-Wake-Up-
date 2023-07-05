@@ -1,45 +1,5 @@
-// level 1
-// 4 students + 30 sec timer
-// One of the two options
-// Option 1: two students with 100% energy and two students with 79% energy
-// Option 2: two students with 100% energy and one student with 79%
-// and another one with 64% energy
-
-// level 2
-// 4 students + 30 sec timer
-// One of the two options
-// Option 1: two students with 79% energy and two students with 64% energy
-// Option 2: two students with 79% energy and one student with 64%
-// and another one with 49% energy
-
-// level 3
-// 6 students + 60 sec timer
-// One of the two options
-// Option 1: four students with 79% energy and two students with 64% energy
-// Option 2: three students with 79% energy and two students with 64% energy and one student with 49% energy
-
-// level 4
-// 8 students + 60 sec timer
-// One student at 100%,
-// Two students at 79%,
-// Two students at 64%,
-// One student at 49%
-
-// level 5
-// 10 students + 90 sec timer
-// Two students at 79%,
-// Three students at 64%,
-// Three students at 49%,
-// Two students at 34%
-
-// level 6(Impossible Level)
-// 12 students + 120 sec timer
-// Four students at 64%,
-// Three students at 49%,
-// Three students at 34%,
-// Two students at 14%
-
 import { delayLoop } from "./delayLoop";
+import { studentImgSrc } from "./rulesPage";
 
 export default class GameGenerator {
   constructor(level) {
@@ -51,17 +11,17 @@ export default class GameGenerator {
 
   generateStudents(level) {
     if (level === 1) {
-      this.generateLevel1();
+      this.generateLevelOne();
     } else if (level === 2) {
-      this.generateLevel2();
+      this.generateLevelTwo();
     } else if (level === 3) {
-      this.generateLevel3();
+      this.generateLevelThree();
     } else if (level === 4) {
-      this.generateLevel4();
+      this.generateLevelFour();
     } else if (level === 5) {
-      this.generateLevel5();
+      this.generateLevelFive();
     } else if (level === 6) {
-      this.generateLevel6();
+      this.generateLevelSix();
     }
   }
 
@@ -114,27 +74,50 @@ export default class GameGenerator {
 
   }
 
-  generateLevel1() {
+  generateLevelOne() {
     const currentLevelStudents = document.createElement("div");
+    currentLevelStudents.setAttribute("id", "level1-students");
+
+    const randomOption = Math.floor(Math.random() * 2);
+    if (randomOption === 0) {
+     this.levelOneOptionOne(currentLevelStudents);
+    } else if (randomOption === 1) {
+      this.levelOneOptionTwo(currentLevelStudents);
+    }
+
+    const currentGame = document.querySelector("#game-frame");
+    currentGame.appendChild(currentLevelStudents);
   }
 
-  generateLevel2() {
+  levelOneOptionOne(studentsContainer) {
+    const studentImgs = document.createElement("div");
+    
+    for (let i = 1; i <= 4; ++i) {
+
+    }
+  }
+
+  levelOneOptionTwo(studentsContainer) {
 
   }
 
-  generateLevel3() {
+  generateLevelTwo() {
 
   }
 
-  generateLevel4() {
+  generateLevelthree() {
 
   }
 
-  generateLevel5() {
+  generateLevelFour() {
 
   }
 
-  generateLevel6() {
+  generateLevelFive() {
+
+  }
+
+  generateLevelSix() {
 
   }
 }

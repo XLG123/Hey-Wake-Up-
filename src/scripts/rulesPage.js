@@ -234,4 +234,4 @@ const shrinkBlackboard = function(blackboard) {
   });
 }
 
-export { showRules, shrinkBlackboard }
+export { showRules, shrinkBlackboard, studentImgSrc }

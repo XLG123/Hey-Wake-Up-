@@ -954,3 +954,8 @@ footer a:visited {
   top: 2.5vw;
   color: rgba(44, 27, 23, 0.8);
 }
+
+#level1-students {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
