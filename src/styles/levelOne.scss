@@ -15,7 +15,8 @@
   position: absolute;
   grid-template-columns: auto auto;
   bottom: 2.5vw;
-  left: 32.5vw;
+  left: 30vw;
+  right: 30vw;
   row-gap: 4vw;
   column-gap: 8vw;
   text-align: center;
@@ -25,5 +26,16 @@
     width: 4vw;
     height: 4vw;
     cursor: pointer;
+    animation-name: shake;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }  
   }
 }

@@ -902,12 +902,12 @@ footer a:visited {
   position: absolute;
   right: 2vw;
   bottom: 2vw;
-  animation-name: shake;
+  animation-name: slide;
   animation-iteration-count: infinite;
   animation-duration: 0.5s;
   font-size: 1.5vw;
 }
-@keyframes shake {
+@keyframes slide {
   0% {
     transform: translateY(3px);
   }
@@ -935,6 +935,17 @@ footer a:visited {
   color: rgb(82, 57, 52);
 }
 
+#level-title {
+  position: absolute;
+  font-size: 2.5vw;
+  right: 2vw;
+  top: 2.5vw;
+  color: rgba(44, 27, 23, 0.8);
+}
+#level-title #level-number {
+  color: black;
+}
+
 #pop-up-container {
   position: absolute;
   width: 20vw;
@@ -954,6 +965,9 @@ footer a:visited {
   top: 2.5vw;
   color: rgba(44, 27, 23, 0.8);
 }
+#current-level-timer #count-down-timer {
+  color: black;
+}
 
 #level1-bb-text-container {
   font-family: "Cousine", sans-serif;
@@ -972,7 +986,8 @@ footer a:visited {
   position: absolute;
   grid-template-columns: auto auto;
   bottom: 2.5vw;
-  left: 32.5vw;
+  left: 30vw;
+  right: 30vw;
   row-gap: 4vw;
   column-gap: 8vw;
   text-align: center;
@@ -981,4 +996,24 @@ footer a:visited {
   width: 4vw;
   height: 4vw;
   cursor: pointer;
+  animation-name: shake;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0eg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

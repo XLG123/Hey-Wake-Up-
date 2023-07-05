@@ -13,8 +13,8 @@ export default class Game {
     const blackboardContent = document.querySelector(".blackboard-textcontent-hp");
     blackboardContent.style.display = "none";
 
-    const teacher = document.querySelector("#teacher-image");
-    teacher.style.animationPlayState = "paused";
+    // const teacher = document.querySelector("#teacher-image");
+    // teacher.style.animationPlayState = "paused";
     // teacher.style.display = "none";
 
     const students = document.querySelector(".students");
@@ -108,9 +108,17 @@ export default class Game {
   backToHomePage() {
     const blackboard = document.querySelector("#blackboard");
     shrinkBlackboard(blackboard);
+    
+    // const currentLevelGetReadyMsg = document.querySelector("#pop-up-container");
+    // if (currentLevelGetReadyMsg) {
+    //   currentLevelGetReadyMsg.remove();
+    // }
 
     const currentLevelTimer = document.querySelector("#current-level-timer");
     currentLevelTimer.remove();
+
+    const currentLevelTitle = document.querySelector("#level-title");
+    currentLevelTitle.remove();
 
     const currentLevelStudents = document.querySelector("#level1-students");
     if (currentLevelStudents) {

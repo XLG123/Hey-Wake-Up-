@@ -78,13 +78,13 @@
     position: absolute;
     right: 2vw;
     bottom: 2vw;
-    animation-name: shake;
+    animation-name: slide;
     animation-iteration-count: infinite;
     animation-duration: 0.5s;
     font-size: 1.5vw;
   }
 
-  @keyframes shake {
+  @keyframes slide {
     0% { transform: translateY(3px); }
     25% { transform: translateY(0px); }
     50% { transform: translateY(-3px); }
