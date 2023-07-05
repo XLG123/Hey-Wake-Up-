@@ -978,7 +978,35 @@ footer a:visited {
 }
 
 #end-game-popup-container {
-  background-color: green;
+  background-color: rgba(183, 157, 141, 0.9);
+  position: absolute;
+  width: 30vw;
+  height: 8vw;
+  text-align: center;
+  border-radius: 10px;
+  top: 15vw;
+  left: 25vw;
+  font-size: 1.5vw;
+  padding: 1vw;
+}
+#end-game-popup-container #end-game-popup-msg {
+  margin-bottom: 0.8vw;
+}
+#end-game-popup-container #end-game-popup-btn {
+  margin-left: auto;
+  margin-right: auto;
+  width: 10vw;
+  height: 2vw;
+  border: 2px solid gray;
+  border-radius: 10px;
+  text-align: center;
+}
+#end-game-popup-container #end-game-popup-btn {
+  background-color: rgba(82, 57, 52, 0.6);
+  cursor: pointer;
+}
+#end-game-popup-container #end-game-popup-btn:hover {
+  background-color: rgba(82, 57, 52, 0.8);
 }
 
 #level1-bb-text-container {

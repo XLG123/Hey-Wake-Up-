@@ -357,9 +357,13 @@ export default class GameGenerator {
     const popUpBtn = document.createElement("div");
 
     if (success) {
-      popUpMsg.innerHTML = `Good Job! Every student is awake!!! You passed level ${level}`;
+      popUpMsg.innerHTML = `Good Job! Every student is awake!!! You passed level ${level}!`;
+      if (level < 6) {
+        popUpBtn.innerHTML = "Next Level";
+      }
     } else {
-      popUpMsg.innerHTML = `Sorry! You failed level ${level}, some students fell asleep.`;
+      popUpMsg.innerHTML = `Sorry! You failed level ${level}, some students fell asleep. T^T`;
+      popUpBtn.innerHTML = "Replay";
     }
 
     popUpMsg.setAttribute("id", "end-game-popup-msg");
@@ -372,6 +376,20 @@ export default class GameGenerator {
 
     const game = document.querySelector("#game-frame");
     game.appendChild(popUpContainer);
+
+    if (level < 6 && success) {
+      this._afterCurrentLevel(popUpBtn, level);
+    } else if (level < 6 && !success) {
+      this._replayCurrentLevel(popUpBtn, level);
+    }
+  }
+
+  _goToNextLevel(popUpBtn, level) {
+    // if (level)
+  }
+
+  _replayCurrentLevel(popUpBtn, level) {
+    
   }
 
 }
