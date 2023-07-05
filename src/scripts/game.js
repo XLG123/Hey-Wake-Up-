@@ -112,6 +112,16 @@ export default class Game {
     const currentLevelTimer = document.querySelector("#current-level-timer");
     currentLevelTimer.remove();
 
+    const currentLevelStudents = document.querySelector("#level1-students");
+    if (currentLevelStudents) {
+      currentLevelStudents.remove();
+    }
+
+    const currentLevelBBContent = document.querySelector("#level1-bb-text-container");
+    if (currentLevelBBContent) {
+      currentLevelBBContent.remove();
+    }
+
     const teacher = document.querySelector("#teacher-image");
     teacher.style.animationPlayState = "running";
 

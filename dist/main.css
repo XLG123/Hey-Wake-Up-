@@ -955,7 +955,30 @@ footer a:visited {
   color: rgba(44, 27, 23, 0.8);
 }
 
+#level1-bb-text-container {
+  font-family: "Cousine", sans-serif;
+  position: absolute;
+  top: 8vw;
+  left: 25vw;
+  width: 30vw;
+  font-weight: 500;
+  font-size: 1.5vw;
+  color: rgb(82, 57, 52);
+  line-height: 1.3em;
+}
+
 #level1-students {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  position: absolute;
+  grid-template-columns: auto auto;
+  bottom: 2.5vw;
+  left: 32.5vw;
+  row-gap: 4vw;
+  column-gap: 8vw;
+  text-align: center;
+}
+#level1-students .level1-students-img {
+  width: 4vw;
+  height: 4vw;
+  cursor: pointer;
 }
