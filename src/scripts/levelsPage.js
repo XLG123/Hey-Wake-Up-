@@ -1,3 +1,5 @@
+import Game from "./game.js";
+
 const showLevels = function() {
   removeBlackboardContent();
   addLevelsPageButtons();
@@ -40,9 +42,22 @@ const addLevelsButtons = function(element) {
     level.classList.add("level-button");
     level.setAttribute("id", `level${i}-button`);
     allLevels.appendChild(level);
+    level.addEventListener("click", () => {
+      generateLevel(i);
+    })
   }
 
   element.appendChild(allLevels);
+}
+
+const generateLevel = function(level) {
+  const goBackButton = document.querySelector("#levels-back-to-hp-btn");
+  goBackButton.remove();
+
+  const allLevels = document.querySelector("#all-levels-container");
+  allLevels.remove();
+
+  new Game(level);
 }
 
 const backToHomePage = function() {

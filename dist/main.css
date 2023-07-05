@@ -934,3 +934,23 @@ footer a:visited {
 #game-rules-container .fa-arrow-left:hover {
   color: rgb(82, 57, 52);
 }
+
+#pop-up-container {
+  position: absolute;
+  width: 20vw;
+  left: 30vw;
+  text-align: center;
+  background-color: rgba(82, 57, 52, 0.3);
+  border-radius: 10px;
+  top: 0.3vw;
+  font-size: 1.5vw;
+  color: rgb(82, 57, 52);
+}
+
+#current-level-timer {
+  font-size: 1.8vw;
+  position: absolute;
+  left: 1vw;
+  top: 2.5vw;
+  color: rgba(44, 27, 23, 0.8);
+}
