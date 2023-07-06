@@ -1,4 +1,4 @@
-#level1-bb-text-container {
+#level1-bb-text-container, #level2-bb-text-container {
   font-family: "Cousine", sans-serif;
   position: absolute;
   top: 8vw;
@@ -10,7 +10,7 @@
   line-height: 1.3em;
 }
 
-#level1-students {
+#level1-students, #level2-students {
   display: grid;
   position: absolute;
   grid-template-columns: auto auto;
@@ -20,9 +20,13 @@
   row-gap: 4vw;
   column-gap: 8vw;
   text-align: center;
-  // color: rgba();
+  font-size: 1.7vw;
+
+  .level1-student, .level2-student {
+    width: 4.5vw;
+  }
   
-  .level1-students-img {
+  .level1-students-img, .level2-students-img {
     width: 4vw;
     height: 4vw;
     cursor: pointer;

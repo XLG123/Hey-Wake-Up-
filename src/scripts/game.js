@@ -27,6 +27,9 @@ export default class Game {
   openGamePage(level) {
     this.showPopUpMsg(level);
     this.removePopUpMsg();
+    this.addHomePageButton(level);
+    const teacherTooltipText = document.querySelector("#teacher-tooltip-text");
+    teacherTooltipText.style.visibility = "visible";
 
     if (level === 1) {
       new GameGenerator(1);
@@ -42,8 +45,13 @@ export default class Game {
       new GameGenerator(6);
     }
 
-    this.addHomePageButton();
   }
+
+  // goToNextLevel() {
+  //   const popUpBtn = document.querySelector("#end-game-popup-btn");
+  //   // popUpBtn.
+  // }
+
 
   showPopUpMsg (level) {
     const popUpContainer = document.createElement("div");
@@ -92,7 +100,7 @@ export default class Game {
     removePopUp;
   }
 
-  addHomePageButton() {
+  addHomePageButton(level) {
     const homePageButton = document.createElement("i");
     homePageButton.classList.add("fa");
     homePageButton.classList.add("fa-home");
@@ -101,11 +109,11 @@ export default class Game {
     gameFrame.appendChild(homePageButton);
 
     homePageButton.addEventListener("click", () => {
-      this.backToHomePage();
+      this.backToHomePage(level);
     })    
   }
 
-  backToHomePage() {
+  backToHomePage(level) {
     const blackboard = document.querySelector("#blackboard");
     shrinkBlackboard(blackboard);
     
@@ -130,18 +138,21 @@ export default class Game {
     const currentLevelTitle = document.querySelector("#level-title");
     currentLevelTitle.remove();
 
-    const currentLevelStudents = document.querySelector("#level1-students");
+    const currentLevelInfo = document.querySelector("#level-info");
+    currentLevelInfo.remove();
+
+    const currentLevelStudents = document.querySelector(`#level${level}-students`);
     if (currentLevelStudents) {
       currentLevelStudents.remove();
     }
 
-    const currentLevelBBContent = document.querySelector("#level1-bb-text-container");
+    const currentLevelBBContent = document.querySelector(`#level${level}-bb-text-container`);
     if (currentLevelBBContent) {
       currentLevelBBContent.remove();
     }
 
-    const teacher = document.querySelector("#teacher-image");
-    teacher.style.animationPlayState = "running";
+    const teacher = document.querySelector("#teacher-tooltip-text");
+    teacher.style.visibility = "hidden";
 
     const students = document.querySelector(".students");
     students.style.display = "";

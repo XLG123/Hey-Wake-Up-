@@ -1,5 +1,5 @@
 const rulesArray = [
-  "Each level will display 1 teacher and 4 to 12 students. The number of students display will be depending on the level.", // rule 1
+  "Each level will display 1 teacher and 4 to 10 students. The number of students display will be depending on the level.", // rule 1
 
   "Each student will have an energy status bar showing their energy level with a matching Dog Image.", // rule 2
 
@@ -9,11 +9,11 @@ const rulesArray = [
 
   "Players must click on each student to add energy points. Otherwise, they will lose energy every second it passes on the timer.", // rule 5
 
-  "<span class='levels'>Level 1</span>: <span>4</span> energy points each click, student energy level drop by 6 points each second", // rule 6
+  "<span class='levels'>Level 1</span>: <span>4</span> energy points each click, student energy level drop by 4 points each second", // rule 6
 
-  "<span class='levels'>Levels 2 and 3</span>: <span>5</span> energy points each click, student energy level drop by 8 points each second", // rule 7
+  "<span class='levels'>Levels 2 to 4</span>: <span>5</span> energy points each click, student energy level drop by 5 points each second", // rule 7
 
-  "<span class='levels'>Levels 4 to 6</span>: <span>8</span> energy points each click, student energy level drop by 10 points each second", // rule 8
+  "<span class='levels'>Levels 5 and 6</span>: <span>6</span> energy points each click, student energy level drop by 6 points each second", // rule 8
 
   "There will be 6 levels in total with Level 1 being the easiest one and <span class='impossible-level'>Level 6</span> being the <span class='impossible-level'>Impossible Level</span>!" // rule 9
 ];

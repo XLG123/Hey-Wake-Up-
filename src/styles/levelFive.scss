@@ -1,0 +1,63 @@
+#level5-bb-text-container, #level6-bb-text-container {
+  font-family: "Cousine", sans-serif;
+  position: absolute;
+  top: 5.5vw;
+  left: 25vw;
+  width: 30vw;
+  font-weight: 500;
+  font-size: 1.5vw;
+  color: rgb(82, 57, 52);
+  line-height: 1.3em;
+
+  #level5-bb-text-fourthLine {
+    text-indent: 1.2em;
+  }
+}
+
+#level5-students, #level6-students {
+  display: grid;
+  position: absolute;
+  grid-template-columns: auto auto auto auto auto;
+  bottom: 2.5vw;
+  left: 12vw;
+  right: 12vw;
+  row-gap: 4vw;
+  column-gap: 8vw;
+  text-align: center;
+  font-size: 1.7vw;
+
+  .level5-student, .level6-student {
+    width: 4.5vw;
+  }
+
+  .level5-students-img, .level6-students-img {
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+    animation-name: shakelv5;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes shakelv5 {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(5deg);
+    }
+
+    50% {
+      transform: rotate(0eg);
+    }
+
+    75% {
+      transform: rotate(-5deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}

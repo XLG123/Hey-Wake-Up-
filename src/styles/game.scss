@@ -10,6 +10,19 @@
   }
 }
 
+#level-info {
+  font-size: 1.8vw;
+  position: absolute;
+  left: 1vw;
+  top: 6.5vw;
+  color: rgba(44, 27, 23, 0.8);
+  line-height: 1.3em;
+
+  .points {
+    color: black;
+  }
+}
+
 #pop-up-container {
   position: absolute;
   width: 20vw;
