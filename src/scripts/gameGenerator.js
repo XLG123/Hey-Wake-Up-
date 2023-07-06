@@ -837,11 +837,8 @@ export default class GameGenerator {
     } else if (level === 4) {
       studentSize = 8;
       clickablePoints = 5;
-    } else if (level === 5) {
+    } else if (level === 5 || level === 6) {
       studentSize = 10;
-      clickablePoints = 6;
-    } else if (level === 6) {
-      studentSize = 12;
       clickablePoints = 6;
     }
 
@@ -920,7 +917,7 @@ export default class GameGenerator {
     } else if (level === 5) {
       studentSize = 10;
     } else if (level === 6) {
-      studentSize = 12;
+      studentSize = 10;
     }
 
     this._updateImg(level, studentSize);
