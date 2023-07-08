@@ -4,6 +4,8 @@ import { studentImgSrc } from "./rulesPage";
 export default class GameGenerator {
   constructor(level) {
     this.level = level;
+    this.showPopUpMsg(this.level);
+    this.removePopUpMsg();
     this.generateLevelTitle(this.level);
     this.generateLevelInfo(this.level);
     this.generateStudents(this.level);
@@ -12,6 +14,53 @@ export default class GameGenerator {
     this.updateImg(this.level);
     this.updateColor(this.level);
     this.endCurrentLevel(this.level);
+  }
+
+  showPopUpMsg(level) {
+    const popUpContainer = document.createElement("div");
+    popUpContainer.setAttribute("id", "pop-up-container");
+
+    const popUpMsg = document.createElement("p");
+
+    const msgFirstHalf = document.createElement("span");
+    msgFirstHalf.innerHTML = `Level ${level} starts in `;
+    popUpMsg.appendChild(msgFirstHalf);
+
+    const countdown = document.createElement("span");
+    countdown.setAttribute("id", "pop-up-timer");
+    countdown.innerHTML = "5";
+    popUpMsg.appendChild(countdown);
+
+    const msgSecondHalf = document.createElement("span");
+    msgSecondHalf.innerHTML = ` seconds!`;
+    popUpMsg.appendChild(msgSecondHalf);
+
+    let sec = 5;
+
+    let countDown = setInterval(function () {
+      document.getElementById("pop-up-timer").innerHTML = --sec;
+    }, 1000);
+
+    popUpContainer.appendChild(popUpMsg);
+
+    const gameFrame = document.querySelector("#game-frame");
+    gameFrame.appendChild(popUpContainer);
+
+    countDown;
+
+    const stopCountDown = setTimeout(function () {
+      clearInterval(countDown);
+    }, 5000);
+
+    stopCountDown;
+  }
+
+  removePopUpMsg() {
+    const popUpContainer = document.querySelector("#pop-up-container");
+    const removePopUp = setTimeout(function () {
+      popUpContainer.remove();
+    }, 5000);
+    removePopUp;
   }
 
   generateLevelTitle(level) {
@@ -1053,6 +1102,8 @@ export default class GameGenerator {
       popUpMsg.innerHTML = `Good Job! Every student is awake!!! You passed level ${level}!`;
       if (level < 6) {
         popUpBtn.innerHTML = "Next Level";
+      } else if (level === 6) {
+        popUpBtn.innerHTML = "coming soon...";  // more levels in future
       }
     } else {
       popUpMsg.innerHTML = `Sorry! You failed level ${level}, some students fell asleep. T^T`;
@@ -1070,23 +1121,45 @@ export default class GameGenerator {
     const game = document.querySelector("#game-frame");
     game.appendChild(popUpContainer);
 
-    // if (level < 6 && success) {
-    //   this._goToNextLevel(popUpBtn, level);
-    // } else if (level < 6 && !success) {
-    //   this._replayCurrentLevel(popUpBtn, level);
-    // }
+    if (level < 6 && success) {
+      this._goToNextLevel(popUpBtn, level);
+    } else if (!success) {
+      this._replayCurrentLevel(popUpBtn, level);
+    }
   }
 
-  // _goToNextLevel(popUpBtn, level) {
-  //   popUpBtn.addEventListener("click", () => {
-  //     new Game(level+1);
-  //   });
-  // }
+  _goToNextLevel(popUpBtn, level) {
+    popUpBtn.addEventListener("click", () => {
+      this._removePreviousGameContent(level);
+      new GameGenerator(level+1);
+    });
+  }
 
-  // _replayCurrentLevel(popUpBtn, level) {
-  //   popUpBtn.addEventListener("click", () => {
-  //     new Game(level);
-  //   });
-  // }
+  _replayCurrentLevel(popUpBtn, level) {
+    popUpBtn.addEventListener("click", () => {
+      this._removePreviousGameContent(level);
+      new GameGenerator(level);
+    });
+  }
+
+  _removePreviousGameContent(level) {
+    const previousTimer = document.querySelector("#current-level-timer");
+    previousTimer.remove();
+
+    const levelTitle = document.querySelector("#level-title");
+    levelTitle.remove();
+
+    const levelInfo = document.querySelector("#level-info");
+    levelInfo.remove();
+
+    const levelBBContent = document.querySelector(`#level${level}-bb-text-container`);
+    levelBBContent.remove();
+
+    const studentsContainer = document.querySelector(`#level${level}-students`);
+    studentsContainer.remove();
+
+    const endGamePopUp = document.querySelector("#end-game-popup-container");
+    endGamePopUp.remove();
+  }
 
 }

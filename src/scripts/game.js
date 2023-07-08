@@ -3,7 +3,6 @@ import { shrinkBlackboard } from "./rulesPage";
 
 export default class Game {
   constructor(level) {
-    // this.gameLevel = DifficultyGenerator.
     this.level = level;
     this.removeHomePage();
     this.openGamePage(this.level);
@@ -13,10 +12,6 @@ export default class Game {
     const blackboardContent = document.querySelector(".blackboard-textcontent-hp");
     blackboardContent.style.display = "none";
 
-    // const teacher = document.querySelector("#teacher-image");
-    // teacher.style.animationPlayState = "paused";
-    // teacher.style.display = "none";
-
     const students = document.querySelector(".students");
     students.style.display = "none";
 
@@ -25,8 +20,6 @@ export default class Game {
   }
 
   openGamePage(level) {
-    this.showPopUpMsg(level);
-    this.removePopUpMsg();
     this.addHomePageButton(level);
     const teacherTooltipText = document.querySelector("#teacher-tooltip-text");
     teacherTooltipText.style.visibility = "visible";
@@ -45,59 +38,6 @@ export default class Game {
       new GameGenerator(6);
     }
 
-  }
-
-  // goToNextLevel() {
-  //   const popUpBtn = document.querySelector("#end-game-popup-btn");
-  //   // popUpBtn.
-  // }
-
-
-  showPopUpMsg (level) {
-    const popUpContainer = document.createElement("div");
-    popUpContainer.setAttribute("id", "pop-up-container");
-
-    const popUpMsg = document.createElement("p");
-
-    const msgFirstHalf = document.createElement("span");
-    msgFirstHalf.innerHTML = `Level ${level} starts in `;
-    popUpMsg.appendChild(msgFirstHalf);
-
-    const countdown = document.createElement("span");
-    countdown.setAttribute("id", "pop-up-timer");
-    countdown.innerHTML = "5";
-    popUpMsg.appendChild(countdown);
-
-    const msgSecondHalf = document.createElement("span");
-    msgSecondHalf.innerHTML = ` seconds!`;
-    popUpMsg.appendChild(msgSecondHalf);
-
-    let sec = 5;
-    
-    let countDown = setInterval(function() {
-      document.getElementById("pop-up-timer").innerHTML = --sec;
-    }, 1000);
-
-    popUpContainer.appendChild(popUpMsg);
-
-    const gameFrame = document.querySelector("#game-frame");
-    gameFrame.appendChild(popUpContainer);
-
-    countDown;
-
-    const stopCountDown = setTimeout(function() {
-      clearInterval(countDown);
-    }, 5000);
-    
-    stopCountDown;
-  }
-
-  removePopUpMsg() {
-    const popUpContainer = document.querySelector("#pop-up-container");
-    const removePopUp = setTimeout(function() {
-      popUpContainer.remove();
-    }, 5000);
-    removePopUp;
   }
 
   addHomePageButton(level) {
