@@ -30,12 +30,25 @@ const addGoBackButton = function (element) {
   goBackButton.classList.add("back-to-hp");
   goBackButton.setAttribute("id", "levels-back-to-hp-btn");
 
-  const goBackSoundEffect = document.createElement("audio");
-  goBackSoundEffect.src = "";
+  const goBackHPSoundEffect = document.createElement("audio");
+  goBackHPSoundEffect.src = "src/assets/audios/blackboardButton.MP3";
+  goBackHPSoundEffect.preload = "auto";
+  goBackHPSoundEffect.load();
+  goBackHPSoundEffect.classList.add("back-to-hp-sound-effect");
 
   element.appendChild(goBackButton);
+  element.appendChild(goBackHPSoundEffect); 
 
   goBackButton.addEventListener("click", () => {
+    const soundEffectBtn = document.querySelector("#sound-effect-button");
+    if (soundEffectBtn.getAttribute("soundEffectOn") === "true") {
+      goBackHPSoundEffect?.play();
+      goBackHPSoundEffect?.addEventListener("ended", function () {
+        backToHomePage();
+      })
+    } else if (soundEffectBtn.getAttribute("soundEffectOn") === "false") {
+      backToHomePage();
+    }
     backToHomePage();
   });
 };
@@ -76,10 +89,10 @@ const generateLevel = function (level) {
 
 const backToHomePage = function () {
   const goBackButton = document.querySelector("#levels-back-to-hp-btn");
-  goBackButton.remove();
+  goBackButton?.remove();
 
   const allLevels = document.querySelector("#all-levels-container");
-  allLevels.remove();
+  allLevels?.remove();
 
   const blackboardTextContent = document.querySelector(
     ".blackboard-textcontent-hp"

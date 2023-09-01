@@ -29,30 +29,6 @@ const blackboardButtonsSoundEffect = function (soundEffect) {
   });
 };
 
-// const backToHPSoundEffect = () => {
-//   const goBackHPSoundEffect = document.querySelector(
-//     ".back-to-hp-sound-effect"
-//   );
-
-//   goBackHPSoundEffect.play();
-//   goBackHPSoundEffect.addEventListener("ended", () => {
-//     back
-//   })
-// }
-
-// // Sound Effect for Back To Home Page Buttons
-// const backToHPButtonsSoundEffect = function (soundEffect) {
-//   const goBackButtons = document.querySelectorAll(".back-to-hp");
-
-//   goBackButtons.forEach((goBackBtn) => {
-//     if (soundEffect) {
-//       goBackBtn.addEventListener("click", backToHPSoundEffect, true);
-//     } else if (!soundEffect) {
-//       goBackBtn.removeEventListener("click", backToHPSoundEffect, true);
-//     }
-//   })
-// };
-
 const playSoundEffectLevelBtn = () => {
   const levelBtnSoundEffect = document.querySelector(".level-btn-sound-effect");
   levelBtnSoundEffect.play();
