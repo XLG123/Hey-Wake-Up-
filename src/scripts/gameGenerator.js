@@ -270,7 +270,7 @@ export default class GameGenerator {
     }
 
     const studentClickSound = document.createElement("audio");
-    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.src = "src/assets/audios/studentClickSound.MP3";
     studentClickSound.preload = "auto";
     studentClickSound.load();
     studentClickSound.classList.add("click-student-sound");
@@ -371,7 +371,7 @@ export default class GameGenerator {
     }
 
     const studentClickSound = document.createElement("audio");
-    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.src = "src/assets/audios/studentClickSound.MP3";
     studentClickSound.preload = "auto";
     studentClickSound.load();
     studentClickSound.classList.add("click-student-sound");
@@ -485,7 +485,7 @@ export default class GameGenerator {
     }
 
     const studentClickSound = document.createElement("audio");
-    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.src = "src/assets/audios/studentClickSound.MP3";
     studentClickSound.preload = "auto";
     studentClickSound.load();
     studentClickSound.classList.add("click-student-sound");
@@ -619,7 +619,7 @@ export default class GameGenerator {
     }
 
     const studentClickSound = document.createElement("audio");
-    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.src = "src/assets/audios/studentClickSound.MP3";
     studentClickSound.preload = "auto";
     studentClickSound.load();
     studentClickSound.classList.add("click-student-sound");
@@ -767,7 +767,7 @@ export default class GameGenerator {
     }
 
     const studentClickSound = document.createElement("audio");
-    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.src = "src/assets/audios/studentClickSound.MP3";
     studentClickSound.preload = "auto";
     studentClickSound.load();
     studentClickSound.classList.add("click-student-sound");
@@ -914,7 +914,7 @@ export default class GameGenerator {
     }
 
     const studentClickSound = document.createElement("audio");
-    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.src = "src/assets/audios/studentClickSound.MP3";
     studentClickSound.preload = "auto";
     studentClickSound.load();
     studentClickSound.classList.add("click-student-sound");
