@@ -1,6 +1,7 @@
 import { showLevels } from "./levelsPage";
 import { showRules } from "./rulesPage";
 import Game from "./game";
+import { blackboardButtonsSoundEffect, handleStudentsClickSound } from "./soundEffects";
 
 class GameFrame {
   constructor(element) {
@@ -10,6 +11,7 @@ class GameFrame {
     this.startButtonPressed();
     this.rulesButtonPressed();
     this.bgmToggle();
+    this.soundEffectToggle();
   }
 
   buildPage(element) {
@@ -182,6 +184,7 @@ class GameFrame {
     soundBtnIcon.classList.add("fa-volume-up");
     soundEffectButton.appendChild(soundBtnIcon);
     soundEffectButton.setAttribute("id", "sound-effect-button");
+    soundEffectButton.setAttribute("soundEffectOn", "false");
     
     soundButtons.appendChild(bgmButton);
     soundButtons.appendChild(soundEffectButton);
@@ -218,6 +221,27 @@ class GameFrame {
         bgmIcon.style.color = "#2c1b17";
       } else {
         bgmIcon.style.color = "rgba(110, 68, 59, 0.75)";
+      }
+    })
+  }
+
+  soundEffectToggle() {
+    const soundEffectButton = document.querySelector("#sound-effect-button");
+    const soundEffectIcon = document.querySelector(".fa-volume-up");
+    soundEffectButton.addEventListener("click", () => {
+      if (soundEffectButton.getAttribute("soundEffectOn") === "false")
+      {
+        soundEffectButton.setAttribute("soundEffectOn", "true");
+        soundEffectIcon.style.color = "#2c1b17";
+        blackboardButtonsSoundEffect(true);
+        handleStudentsClickSound(true);
+      } 
+      else if (soundEffectButton.getAttribute("soundEffectOn") === "true") 
+      {
+        soundEffectButton.setAttribute("soundEffectOn", "false");
+        soundEffectIcon.style.color = "rgba(110, 68, 59, 0.75)";
+        blackboardButtonsSoundEffect(false);
+        handleStudentsClickSound(false);
       }
     })
   }
@@ -263,17 +287,6 @@ class GameFrame {
       showRules();
     })
   }
-
-  // soundEffectToggle() {
-  //   const soundEffectIcon = document.querySelector(".fa-volumn-up");
-  //   soundEffectIcon.addEventListener("click", ()=> {
-  //     if (soundEffectIcon.style.color == "#6e443b") {
-  //       soundEffectIcon.style.color = "#2c1b17";
-  //     } else {
-  //       soundEffectIcon.style.color = "#6e443b";
-  //     }
-  //   })
-  // }
    
 }
 

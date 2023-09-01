@@ -9,15 +9,18 @@
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  font-weight: 500;  
-  background: linear-gradient(rgba(230, 190, 164, 0.75), rgba(248, 228, 216, 0.8)) ;
+  font-weight: 500;
+  background: linear-gradient(
+    rgba(230, 190, 164, 0.75),
+    rgba(248, 228, 216, 0.8)
+  );
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
   width: 40vw;
   height: 35vh;
   overflow-y: auto;
 
   .blackboard-textcontent-hp {
-    color:rgb(82, 57, 52);
+    color: rgb(82, 57, 52);
     margin-top: 1.3vw;
     font-size: 1.5vw;
     margin-left: auto;
@@ -41,7 +44,7 @@
       text-indent: 1.5em;
     }
   }
-  
+
   #first-line::before {
     content: "";
     animation-name: hp-first-line;
@@ -89,8 +92,8 @@
     animation-fill-mode: forwards;
   }
 
-  #first-line::after, 
-  #second-line::after, 
+  #first-line::after,
+  #second-line::after,
   #third-line::after,
   #fourth-line::after,
   #fifth-line::after,
@@ -103,101 +106,261 @@
   }
 
   @keyframes hp-first-line {
-    0% {content: "c";}
-    7% {content: "cl";}
-    14% {content: "cla";}
-    21% {content: "clas";}
-    28% {content: "class";}
-    35% {content: "class ";}
-    42% {content: "class ";}
-    49% {content: "class S";}
-    56% {content: "class St";}
-    63% {content: "class Stu";}
-    70% {content: "class Stud";}
-    77% {content: "class Stude";}
-    84% {content: "class Studen";}
-    90% {content: "class Student";}
-    96% {content: "class Student ";}
-    100% {content: "class Student {";}
+    0% {
+      content: "c";
+    }
+    7% {
+      content: "cl";
+    }
+    14% {
+      content: "cla";
+    }
+    21% {
+      content: "clas";
+    }
+    28% {
+      content: "class";
+    }
+    35% {
+      content: "class ";
+    }
+    42% {
+      content: "class ";
+    }
+    49% {
+      content: "class S";
+    }
+    56% {
+      content: "class St";
+    }
+    63% {
+      content: "class Stu";
+    }
+    70% {
+      content: "class Stud";
+    }
+    77% {
+      content: "class Stude";
+    }
+    84% {
+      content: "class Studen";
+    }
+    90% {
+      content: "class Student";
+    }
+    96% {
+      content: "class Student ";
+    }
+    100% {
+      content: "class Student {";
+    }
   }
 
   @keyframes hp-second-line {
-    0% {content: "c";}
-    7% {content: "co";}
-    14% {content: "con";}
-    21% {content: "cons";}
-    28% {content: "const";}
-    35% {content: "constr";}
-    42% {content: "constru";}
-    49% {content: "construc";}
-    56% {content: "construct";}
-    63% {content: "constructo";}
-    70% {content: "constructor";}
-    77% {content: "constructor(";}
-    84% {content: "constructor()";}
-    91% {content: "constructor() ";}
-    100% {content: "constructor() {";}
+    0% {
+      content: "c";
+    }
+    7% {
+      content: "co";
+    }
+    14% {
+      content: "con";
+    }
+    21% {
+      content: "cons";
+    }
+    28% {
+      content: "const";
+    }
+    35% {
+      content: "constr";
+    }
+    42% {
+      content: "constru";
+    }
+    49% {
+      content: "construc";
+    }
+    56% {
+      content: "construct";
+    }
+    63% {
+      content: "constructo";
+    }
+    70% {
+      content: "constructor";
+    }
+    77% {
+      content: "constructor(";
+    }
+    84% {
+      content: "constructor()";
+    }
+    91% {
+      content: "constructor() ";
+    }
+    100% {
+      content: "constructor() {";
+    }
   }
 
   @keyframes hp-third-line {
-    0% {content: "t";}
-    6% {content: "th";}
-    12% {content: "thi";}
-    18% {content: "this";}
-    24% {content: "this.";}
-    30% {content: "this.s";}
-    36% {content: "this.sl";}
-    42% {content: "this.sle";}
-    48% {content: "this.slee";}
-    54% {content: "this.sleep";}
-    60% {content: "this.sleepy";}
-    66% {content: "this.sleepy ";}
-    72% {content: "this.sleepy =";}
-    78% {content: "this.sleepy = ";}
-    84% {content: "this.sleepy = t";}
-    90% {content: "this.sleepy = tr";}
-    93% {content: "this.sleepy = tru";}
-    96% {content: "this.sleepy = true";}
-    100% {content: "this.sleepy = true;";}
+    0% {
+      content: "t";
+    }
+    6% {
+      content: "th";
+    }
+    12% {
+      content: "thi";
+    }
+    18% {
+      content: "this";
+    }
+    24% {
+      content: "this.";
+    }
+    30% {
+      content: "this.s";
+    }
+    36% {
+      content: "this.sl";
+    }
+    42% {
+      content: "this.sle";
+    }
+    48% {
+      content: "this.slee";
+    }
+    54% {
+      content: "this.sleep";
+    }
+    60% {
+      content: "this.sleepy";
+    }
+    66% {
+      content: "this.sleepy ";
+    }
+    72% {
+      content: "this.sleepy =";
+    }
+    78% {
+      content: "this.sleepy = ";
+    }
+    84% {
+      content: "this.sleepy = t";
+    }
+    90% {
+      content: "this.sleepy = tr";
+    }
+    93% {
+      content: "this.sleepy = tru";
+    }
+    96% {
+      content: "this.sleepy = true";
+    }
+    100% {
+      content: "this.sleepy = true;";
+    }
   }
 
   @keyframes hp-fourth-line {
-    0% {content: "t";}
-    4% {content: "th";}
-    8% {content: "thi";}
-    12% {content: "this";}
-    16% {content: "this.";}
-    20% {content: "this.g";}
-    24% {content: "this.go";}
-    28% {content: "this.goT";}
-    32% {content: "this.goTo";}
-    36% {content: "this.goToS";}
-    40% {content: "this.goToSl";}
-    44% {content: "this.goToSle";}
-    48% {content: "this.goToSlee";}
-    52% {content: "this.goToSleep";}
-    56% {content: "this.goToSleep(";}
-    60% {content: "this.goToSleep(t";}
-    64% {content: "this.goToSleep(th";}
-    68% {content: "this.goToSleep(thi";}
-    72% {content: "this.goToSleep(this";}
-    76% {content: "this.goToSleep(this.";}
-    80% {content: "this.goToSleep(this.s";}
-    84% {content: "this.goToSleep(this.sl";}
-    86% {content: "this.goToSleep(this.sle";}
-    88% {content: "this.goToSleep(this.slee";}
-    90% {content: "this.goToSleep(this.sleep";}
-    92% {content: "this.goToSleep(this.sleepy";}
-    96% {content: "this.goToSleep(this.sleepy)";}
-    100% {content: "this.goToSleep(this.sleepy);";}
+    0% {
+      content: "t";
+    }
+    4% {
+      content: "th";
+    }
+    8% {
+      content: "thi";
+    }
+    12% {
+      content: "this";
+    }
+    16% {
+      content: "this.";
+    }
+    20% {
+      content: "this.g";
+    }
+    24% {
+      content: "this.go";
+    }
+    28% {
+      content: "this.goT";
+    }
+    32% {
+      content: "this.goTo";
+    }
+    36% {
+      content: "this.goToS";
+    }
+    40% {
+      content: "this.goToSl";
+    }
+    44% {
+      content: "this.goToSle";
+    }
+    48% {
+      content: "this.goToSlee";
+    }
+    52% {
+      content: "this.goToSleep";
+    }
+    56% {
+      content: "this.goToSleep(";
+    }
+    60% {
+      content: "this.goToSleep(t";
+    }
+    64% {
+      content: "this.goToSleep(th";
+    }
+    68% {
+      content: "this.goToSleep(thi";
+    }
+    72% {
+      content: "this.goToSleep(this";
+    }
+    76% {
+      content: "this.goToSleep(this.";
+    }
+    80% {
+      content: "this.goToSleep(this.s";
+    }
+    84% {
+      content: "this.goToSleep(this.sl";
+    }
+    86% {
+      content: "this.goToSleep(this.sle";
+    }
+    88% {
+      content: "this.goToSleep(this.slee";
+    }
+    90% {
+      content: "this.goToSleep(this.sleep";
+    }
+    92% {
+      content: "this.goToSleep(this.sleepy";
+    }
+    96% {
+      content: "this.goToSleep(this.sleepy)";
+    }
+    100% {
+      content: "this.goToSleep(this.sleepy);";
+    }
   }
 
   @keyframes hp-fifth-line {
-    100% {content: "}";}
+    100% {
+      content: "}";
+    }
   }
 
   @keyframes hp-sixth-line {
-    100% {content: "}";}
+    100% {
+      content: "}";
+    }
   }
 
   .blackboard-buttons {
@@ -218,12 +381,15 @@
       border-radius: 10px;
       border: 2px solid rgba(110, 68, 59, 0.55);
       box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.5);
-      color:rgba(82, 57, 52);
+      color: rgba(82, 57, 52);
       background-color: transparent;
     }
-  
+
     .blackboard-button:hover {
-      background: linear-gradient(rgba(110, 68, 59, 0.2), rgba(110, 68, 59, 0.55));
+      background: linear-gradient(
+        rgba(110, 68, 59, 0.2),
+        rgba(110, 68, 59, 0.55)
+      );
       box-shadow: none;
       color: white;
       font-weight: bold;
@@ -234,6 +400,13 @@
   ::-webkit-scrollbar-track {
     display: none;
   }
+}
+
+#blackboard:has(#game-rules-container) {
+  background: linear-gradient(
+    rgba(230, 190, 164, 0.85),
+    rgba(248, 228, 216, 0.9)
+  );
 }
 
 #teacher {
@@ -251,9 +424,15 @@
   }
 
   @keyframes scale-up {
-    0% {transform: scale(0.9)}
-    50% {transform: scale(1.1)}
-    100% {transform: scale(0.9)}
+    0% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(0.9);
+    }
   }
 
   #teacher-tooltip-text {
@@ -262,7 +441,7 @@
     position: absolute;
     text-align: center;
     font-size: 1.3vw;
-    background-color:rgba(248, 228, 216, 0.5);
+    background-color: rgba(248, 228, 216, 0.5);
     border-radius: 10px;
     border: 1px solid rgb(201, 198, 198);
     margin-left: 1vw;
@@ -317,12 +496,22 @@
     animation-iteration-count: infinite;
   }
 
-  @keyframes shake-image1{
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(0eg); }
-    75% { transform: rotate(-5deg); }
-    100% { transform: rotate(0deg); }
+  @keyframes shake-image1 {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0eg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 
   #student2-image,
@@ -335,12 +524,22 @@
     animation-iteration-count: infinite;
   }
 
-  @keyframes shake-image2{
-    0% { transform: rotate(-1deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(0eg); }
-    75% { transform: rotate(-5deg); }
-    100% { transform: rotate(1deg); }
+  @keyframes shake-image2 {
+    0% {
+      transform: rotate(-1deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0eg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(1deg);
+    }
   }
 
   .student-tooltip-text {
@@ -351,11 +550,12 @@
     font-size: 1.3vw;
     background-color: rgba(248, 228, 216, 0.5);
     border-radius: 10px;
-    border: 1px solid rgb(201, 198, 198); 
+    border: 1px solid rgb(201, 198, 198);
     margin-left: 1vw;
   }
 
-  #student5-tooltip-text, #student10-tooltip-text {
+  #student5-tooltip-text,
+  #student10-tooltip-text {
     margin-left: 0;
     margin-right: 1vw;
     right: 10vw;
@@ -382,7 +582,6 @@
   li:first-child {
     margin-right: 20px;
   }
-
 
   // should be removed after all the buttons have been added
   li:hover {

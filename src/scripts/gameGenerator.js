@@ -1,5 +1,15 @@
-import { delayLoop5, delayLoop30, delayLoop60, delayLoop90, delayLoop120 } from "./delayLoop";
+import {
+  delayLoop5,
+  delayLoop30,
+  delayLoop60,
+  delayLoop90,
+  delayLoop120,
+} from "./delayLoop";
 import { studentImgSrc } from "./rulesPage";
+import {
+  handleStudentsClickSound,
+  endGamePopUpBtnSoundEffect,
+} from "./soundEffects";
 
 export default class GameGenerator {
   constructor(level) {
@@ -13,6 +23,7 @@ export default class GameGenerator {
     this.decrementEnergyPoints(this.level);
     this.updateImg(this.level);
     this.updateColor(this.level);
+    this.studentsClickSoundEffect();
     this.endCurrentLevel(this.level);
   }
 
@@ -76,7 +87,7 @@ export default class GameGenerator {
     levelTitle.appendChild(levelText);
     levelTitle.appendChild(levelNumber);
     levelTitle.setAttribute("id", "level-title");
-    
+
     const game = document.querySelector("#game-frame");
     game.appendChild(levelTitle);
   }
@@ -88,13 +99,16 @@ export default class GameGenerator {
     let decrementEachSec = document.createElement("p");
     if (level === 1) {
       clickPoints.innerHTML = "Each click: <span class='points'>+4%</span>";
-      decrementEachSec.innerHTML = "Each second: <span class='points'>-4%</span>";
+      decrementEachSec.innerHTML =
+        "Each second: <span class='points'>-4%</span>";
     } else if (level >= 2 && level <= 4) {
       clickPoints.innerHTML = "Each click: <span class='points'>+5%</span>";
-      decrementEachSec.innerHTML = "Each second: <span class='points'>-5%</span>";
+      decrementEachSec.innerHTML =
+        "Each second: <span class='points'>-5%</span>";
     } else if (level === 5 || level === 6) {
       clickPoints.innerHTML = "Each click: <span class='points'>+6%</span>";
-      decrementEachSec.innerHTML = "Each second: <span class='points'>-6%</span>";
+      decrementEachSec.innerHTML =
+        "Each second: <span class='points'>-6%</span>";
     }
 
     levelInfo.appendChild(clickPoints);
@@ -103,7 +117,7 @@ export default class GameGenerator {
     levelInfo.setAttribute("id", "level-info");
 
     const game = document.querySelector("#game-frame");
-    game.appendChild(levelInfo);   
+    game.appendChild(levelInfo);
   }
 
   generateStudents(level) {
@@ -157,30 +171,29 @@ export default class GameGenerator {
     currentGame.appendChild(currentLevelTimer);
   }
 
-  async setTimer (timer, sec) {
+  async setTimer(timer, sec) {
     await delayLoop5();
     const timerCountDown = setInterval(function () {
       timer.innerHTML = --sec;
     }, 1000);
-    
+
     const delayTime = sec * 1000;
 
-    setTimeout(function() {
+    setTimeout(function () {
       clearInterval(timerCountDown);
     }, delayTime);
-
   }
 
   generateLevelOne() {
     const currentGame = document.querySelector("#game-frame");
-  
+
     this.showLevelOneBlackboard(currentGame);
 
     const currentLevelStudents = document.createElement("div");
     currentLevelStudents.setAttribute("id", "level1-students");
 
     this.levelOne(currentLevelStudents);
-    
+
     currentGame.appendChild(currentLevelStudents);
   }
 
@@ -211,11 +224,12 @@ export default class GameGenerator {
     students = students.sort(() => 0.5 - Math.random());
 
     for (let i = 1; i <= 4; ++i) {
-      const student= document.createElement("div");
+      const student = document.createElement("div");
+      student.classList.add("current-level-student");
       student.classList.add("level1-student");
 
       const img = document.createElement("img");
-      const src = students[i-1];
+      const src = students[i - 1];
       img.src = src;
       img.setAttribute("id", `level1-student-${i}-img`);
       img.classList.add("level1-students-img");
@@ -234,7 +248,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "energyMiddle.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -252,9 +265,16 @@ export default class GameGenerator {
       }
 
       student.appendChild(img);
-      
+
       studentsContainer.appendChild(student);
     }
+
+    const studentClickSound = document.createElement("audio");
+    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.preload = "auto";
+    studentClickSound.load();
+    studentClickSound.classList.add("click-student-sound");
+    studentsContainer.appendChild(studentClickSound);
 
     this.clickableStudents(this.level);
   }
@@ -306,6 +326,7 @@ export default class GameGenerator {
 
     for (let i = 1; i <= 4; ++i) {
       const student = document.createElement("div");
+      student.classList.add("current-level-student");
       student.classList.add("level2-student");
 
       const img = document.createElement("img");
@@ -328,7 +349,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "energyBottom.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -350,9 +370,15 @@ export default class GameGenerator {
       studentsContainer.appendChild(student);
     }
 
+    const studentClickSound = document.createElement("audio");
+    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.preload = "auto";
+    studentClickSound.load();
+    studentClickSound.classList.add("click-student-sound");
+    studentsContainer.appendChild(studentClickSound);
+
     this.clickableStudents(this.level);
   }
-
 
   generateLevelThree() {
     const currentGame = document.querySelector("#game-frame");
@@ -364,7 +390,7 @@ export default class GameGenerator {
 
     this.levelThree(currentLevelStudents);
 
-    currentGame.appendChild(currentLevelStudents);  
+    currentGame.appendChild(currentLevelStudents);
   }
 
   showLevelThreeBlackboard(currentGame) {
@@ -398,7 +424,7 @@ export default class GameGenerator {
     fifthLine.innerHTML = "}";
     fifthLine.setAttribute("id", "level3-bb-text-fifthLine");
     fifthLine.classList.add("level3-bb-text");
-    blackboardContent.appendChild(fifthLine); 
+    blackboardContent.appendChild(fifthLine);
 
     currentGame.appendChild(blackboardContent);
   }
@@ -414,6 +440,7 @@ export default class GameGenerator {
 
     for (let i = 1; i <= 6; ++i) {
       const student = document.createElement("div");
+      student.classList.add("current-level-student");
       student.classList.add("level3-student");
 
       const img = document.createElement("img");
@@ -436,7 +463,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "energyBottom.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -458,6 +484,13 @@ export default class GameGenerator {
       studentsContainer.appendChild(student);
     }
 
+    const studentClickSound = document.createElement("audio");
+    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.preload = "auto";
+    studentClickSound.load();
+    studentClickSound.classList.add("click-student-sound");
+    studentsContainer.appendChild(studentClickSound);
+
     this.clickableStudents(this.level);
   }
 
@@ -471,7 +504,7 @@ export default class GameGenerator {
 
     this.levelFour(currentLevelStudents);
 
-    currentGame.appendChild(currentLevelStudents);  
+    currentGame.appendChild(currentLevelStudents);
   }
 
   showLevelFourBlackboard(currentGame) {
@@ -513,6 +546,7 @@ export default class GameGenerator {
 
     for (let i = 1; i <= 8; ++i) {
       const student = document.createElement("div");
+      student.classList.add("current-level-student");
       student.classList.add("level4-student");
 
       const img = document.createElement("img");
@@ -521,7 +555,7 @@ export default class GameGenerator {
       img.setAttribute("id", `level4-student-${i}-img`);
       img.classList.add("level4-students-img");
 
-      if (src.slice(27) === "energyTop.png"){
+      if (src.slice(27) === "energyTop.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
         const percentage = document.createElement("span");
@@ -535,7 +569,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "energyMiddle.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -550,7 +583,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "energyBottom.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -578,13 +610,20 @@ export default class GameGenerator {
 
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
-        student.appendChild(energyLevel);        
+        student.appendChild(energyLevel);
       }
 
       student.appendChild(img);
 
       studentsContainer.appendChild(student);
     }
+
+    const studentClickSound = document.createElement("audio");
+    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.preload = "auto";
+    studentClickSound.load();
+    studentClickSound.classList.add("click-student-sound");
+    studentsContainer.appendChild(studentClickSound);
 
     this.clickableStudents(this.level);
   }
@@ -599,7 +638,7 @@ export default class GameGenerator {
 
     this.levelFive(currentLevelStudents);
 
-    currentGame.appendChild(currentLevelStudents);  
+    currentGame.appendChild(currentLevelStudents);
   }
 
   showLevelFiveBlackboard(currentGame) {
@@ -654,7 +693,9 @@ export default class GameGenerator {
 
     for (let i = 1; i <= 10; ++i) {
       const student = document.createElement("div");
+      student.classList.add("current-level-student");
       student.classList.add("level5-student");
+      // student.setAttribute("")
 
       const img = document.createElement("img");
       const src = students[i - 1];
@@ -676,7 +717,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "energyBottom.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -691,7 +731,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "sleepyTop.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -727,6 +766,13 @@ export default class GameGenerator {
       studentsContainer.appendChild(student);
     }
 
+    const studentClickSound = document.createElement("audio");
+    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.preload = "auto";
+    studentClickSound.load();
+    studentClickSound.classList.add("click-student-sound");
+    studentsContainer.appendChild(studentClickSound);
+
     this.clickableStudents(this.level);
   }
 
@@ -740,7 +786,7 @@ export default class GameGenerator {
 
     this.levelSix(currentLevelStudents);
 
-    currentGame.appendChild(currentLevelStudents);    
+    currentGame.appendChild(currentLevelStudents);
   }
 
   showLevelSixBlackboard(currentGame) {
@@ -795,6 +841,7 @@ export default class GameGenerator {
 
     for (let i = 1; i <= 10; ++i) {
       const student = document.createElement("div");
+      student.classList.add("current-level-student");
       student.classList.add("level6-student");
 
       const img = document.createElement("img");
@@ -817,7 +864,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "sleepyTop.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -832,7 +878,6 @@ export default class GameGenerator {
         energyLevel.appendChild(energyNumber);
         energyLevel.appendChild(percentage);
         student.appendChild(energyLevel);
-
       } else if (src.slice(27) === "sleepyMiddle.png") {
         const energyLevel = document.createElement("div");
         const energyNumber = document.createElement("span");
@@ -868,9 +913,15 @@ export default class GameGenerator {
       studentsContainer.appendChild(student);
     }
 
+    const studentClickSound = document.createElement("audio");
+    studentClickSound.src = "src/assets/audios/studentClickSound.mp3";
+    studentClickSound.preload = "auto";
+    studentClickSound.load();
+    studentClickSound.classList.add("click-student-sound");
+    studentsContainer.appendChild(studentClickSound);
+
     this.clickableStudents(this.level);
   }
-  
 
   async clickableStudents(level) {
     await delayLoop5();
@@ -892,12 +943,13 @@ export default class GameGenerator {
     }
 
     for (let i = 1; i <= studentSize; ++i) {
-      const studentImg = document.querySelector(`#level${level}-student-${i}-img`);
+      const studentImg = document.querySelector(
+        `#level${level}-student-${i}-img`
+      );
       studentImg.addEventListener("click", () => {
         this.incrementEnergyPoints(level, i, clickablePoints);
       });
     }
-
   }
 
   incrementEnergyPoints(level, i, clickablePoints) {
@@ -926,8 +978,8 @@ export default class GameGenerator {
     await delayLoop5();
     const students = document.querySelectorAll(`.level${level}-energy-level`);
 
-    const fcn = function() {
-      students.forEach(student => {
+    const fcn = function () {
+      students.forEach((student) => {
         let energy = parseInt(student.innerHTML);
 
         if (energy - points < 0) {
@@ -937,7 +989,7 @@ export default class GameGenerator {
           student.innerHTML = `${energy}`;
         }
       });
-    }
+    };
 
     const decreasePoints = setInterval(fcn, 1000);
 
@@ -951,10 +1003,9 @@ export default class GameGenerator {
       stopTime = 120000;
     }
 
-    setTimeout(function() {
+    setTimeout(function () {
       clearInterval(decreasePoints);
     }, stopTime);
-
   }
 
   updateImg(level) {
@@ -979,7 +1030,9 @@ export default class GameGenerator {
     const _imgSrc = setInterval(function () {
       for (let i = 1; i <= studentSize; ++i) {
         let energy = parseInt(students[i - 1].innerHTML);
-        let studentImg = document.querySelector(`#level${level}-student-${i}-img`);
+        let studentImg = document.querySelector(
+          `#level${level}-student-${i}-img`
+        );
         if (energy >= 80) {
           studentImg.src = studentImgSrc[0];
         } else if (energy >= 65 && energy <= 79) {
@@ -1009,7 +1062,6 @@ export default class GameGenerator {
     setTimeout(function () {
       clearInterval(_imgSrc);
     }, time);
-    
   }
 
   updateColor(level) {
@@ -1021,14 +1073,14 @@ export default class GameGenerator {
 
     const students = document.querySelectorAll(`.level${level}-energy-level`);
     const _energyColor = setInterval(function () {
-      students.forEach(student => {
+      students.forEach((student) => {
         let energy = parseInt(student.innerHTML);
         if (energy < 50) {
           student.style.color = "darkred";
         } else {
           student.style.color = "black";
         }
-      })
+      });
     }, 100);
 
     let time = 30000;
@@ -1040,16 +1092,26 @@ export default class GameGenerator {
     } else if (level === 6) {
       time = 120000;
     }
-    
-    setTimeout(function() {
-      clearInterval(_energyColor)
+
+    setTimeout(function () {
+      clearInterval(_energyColor);
     }, time);
+  }
+
+  studentsClickSoundEffect() {
+    const soundEffectButton = document.querySelector("#sound-effect-button");
+    if (soundEffectButton.getAttribute("soundEffectOn") === "true") {
+      console.log("inside");
+      handleStudentsClickSound(true);
+    } else if (soundEffectButton.getAttribute("soundEffectOff") === "false") {
+      handleStudentsClickSound(false);
+    }
   }
 
   endCurrentLevel(level) {
     this._endGame(level);
   }
-  
+
   async _endGame(level) {
     const homePageButton = document.querySelector(".fa-home");
     homePageButton.style.visibility = "hidden";
@@ -1071,20 +1133,26 @@ export default class GameGenerator {
 
     const studentContainer = document.querySelector(`#level${level}-students`);
     if (studentContainer) {
-      const studentContainerWidth = document.querySelector(`#level${level}-students`).offsetWidth;
-      const studentContainerHeight = document.querySelector(`#level${level}-students`).offsetHeight;
+      const studentContainerWidth = document.querySelector(
+        `#level${level}-students`
+      ).offsetWidth;
+      const studentContainerHeight = document.querySelector(
+        `#level${level}-students`
+      ).offsetHeight;
       unclickable.style.width = `${studentContainerWidth}px`;
       unclickable.style.height = `${studentContainerHeight}px`;
-  
+
       const game = document.querySelector("#game-frame");
       game.appendChild(unclickable);
     }
 
     let win = true;
 
-    const allStudentsEnergyLevel = document.querySelectorAll(`.level${level}-energy-level`);
+    const allStudentsEnergyLevel = document.querySelectorAll(
+      `.level${level}-energy-level`
+    );
 
-    allStudentsEnergyLevel.forEach(studentEnergyLevel => {
+    allStudentsEnergyLevel.forEach((studentEnergyLevel) => {
       if (parseInt(studentEnergyLevel.innerHTML) < 50) {
         win = false;
       }
@@ -1092,7 +1160,7 @@ export default class GameGenerator {
 
     this._endPopUp(level, win);
   }
-  
+
   _endPopUp(level, success) {
     const popUpContainer = document.createElement("div");
     const popUpMsg = document.createElement("div");
@@ -1103,7 +1171,7 @@ export default class GameGenerator {
       if (level < 6) {
         popUpBtn.innerHTML = "Next Level";
       } else if (level === 6) {
-        popUpBtn.innerHTML = "coming soon...";  // more levels in future
+        popUpBtn.innerHTML = "coming soon..."; // more levels in future
       }
     } else {
       popUpMsg.innerHTML = `Sorry! You failed level ${level}, some students fell asleep. T^T`;
@@ -1121,22 +1189,28 @@ export default class GameGenerator {
     const game = document.querySelector("#game-frame");
     game.appendChild(popUpContainer);
 
+    endGamePopUpBtnSoundEffect();
+    const endGameSound = document.querySelector("#end-game-sound");
+
     if (level < 6 && success) {
-      this._goToNextLevel(popUpBtn, level);
+      this._goToNextLevel(popUpBtn, endGameSound, level);
     } else if (!success) {
-      this._replayCurrentLevel(popUpBtn, level);
+      this._replayCurrentLevel(popUpBtn, endGameSound, level);
     }
   }
 
-  _goToNextLevel(popUpBtn, level) {
+  _goToNextLevel(popUpBtn, endGameSound, level) {
     popUpBtn.addEventListener("click", () => {
+      endGameSound.play();
       this._removePreviousGameContent(level);
-      new GameGenerator(level+1);
+      new GameGenerator(level + 1);
     });
   }
 
-  _replayCurrentLevel(popUpBtn, level) {
+  _replayCurrentLevel(popUpBtn, endGameSound, level) {
     popUpBtn.addEventListener("click", () => {
+      console.log(endGameSound);
+      // endGameSound.play();
       this._removePreviousGameContent(level);
       new GameGenerator(level);
     });
@@ -1152,14 +1226,18 @@ export default class GameGenerator {
     const levelInfo = document.querySelector("#level-info");
     levelInfo.remove();
 
-    const levelBBContent = document.querySelector(`#level${level}-bb-text-container`);
+    const levelBBContent = document.querySelector(
+      `#level${level}-bb-text-container`
+    );
     levelBBContent.remove();
 
     const studentsContainer = document.querySelector(`#level${level}-students`);
     studentsContainer.remove();
 
+    const unclickable = document.querySelector("#unclickable");
+    unclickable.remove();
+
     const endGamePopUp = document.querySelector("#end-game-popup-container");
     endGamePopUp.remove();
   }
-
 }
