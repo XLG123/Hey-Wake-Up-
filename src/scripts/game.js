@@ -9,7 +9,9 @@ export default class Game {
   }
 
   removeHomePage() {
-    const blackboardContent = document.querySelector(".blackboard-textcontent-hp");
+    const blackboardContent = document.querySelector(
+      ".blackboard-textcontent-hp"
+    );
     blackboardContent.style.display = "none";
 
     const students = document.querySelector(".students");
@@ -37,26 +39,41 @@ export default class Game {
     } else if (level === 6) {
       new GameGenerator(6);
     }
-
   }
 
   addHomePageButton(level) {
     const homePageButton = document.createElement("i");
     homePageButton.classList.add("fa");
     homePageButton.classList.add("fa-home");
+    homePageButton.classList.add("back-to-hp");
+
+    const backToHPSoundEffect = document.createElement("audio");
+    backToHPSoundEffect.src = "src/assets/audios/blackboardButton.MP3";
+    backToHPSoundEffect.preload = "auto";
+    backToHPSoundEffect.load();
+    backToHPSoundEffect.classList.add("back-to-hp-sound-effect");
 
     const gameFrame = document.getElementById("game-frame");
     gameFrame.appendChild(homePageButton);
+    gameFrame.appendChild(backToHPSoundEffect);
 
     homePageButton.addEventListener("click", () => {
-      this.backToHomePage(level);
-    })    
+      const soundEffectBtn = document.querySelector("#sound-effect-button");
+      if (soundEffectBtn.getAttribute("soundEffectOn") === "true") {
+        backToHPSoundEffect.play();
+        backToHPSoundEffect.addEventListener("ended", () => {
+          this.backToHomePage(level);
+        });
+      } else if (soundEffectBtn.getAttribute("soundEffectOn") === "false") {
+        this.backToHomePage(level);
+      }
+    });
   }
 
   backToHomePage(level) {
     const blackboard = document.querySelector("#blackboard");
     shrinkBlackboard(blackboard);
-    
+
     // const currentLevelGetReadyMsg = document.querySelector("#pop-up-container");
     // if (currentLevelGetReadyMsg) {
     //   currentLevelGetReadyMsg.remove();
@@ -81,12 +98,16 @@ export default class Game {
     const currentLevelInfo = document.querySelector("#level-info");
     currentLevelInfo.remove();
 
-    const currentLevelStudents = document.querySelector(`#level${level}-students`);
+    const currentLevelStudents = document.querySelector(
+      `#level${level}-students`
+    );
     if (currentLevelStudents) {
       currentLevelStudents.remove();
     }
 
-    const currentLevelBBContent = document.querySelector(`#level${level}-bb-text-container`);
+    const currentLevelBBContent = document.querySelector(
+      `#level${level}-bb-text-container`
+    );
     if (currentLevelBBContent) {
       currentLevelBBContent.remove();
     }
@@ -101,7 +122,6 @@ export default class Game {
     blackboardButtons.style.display = "";
 
     const homePageButton = document.querySelector(".fa-home");
-    homePageButton.remove();    
+    homePageButton.remove();
   }
-
 }

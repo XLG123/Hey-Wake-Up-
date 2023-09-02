@@ -1,5 +1,4 @@
 import Game from "./game.js";
-import { levelsPageButtonsSoundEffect } from "./soundEffects.js";
 
 const showLevels = function () {
   removeBlackboardContent();
@@ -54,7 +53,13 @@ const addGoBackButton = function (element) {
 };
 
 const addLevelsButtons = function (element) {
+  const levelBtnSoundEffect = document.createElement("audio");
+  levelBtnSoundEffect.src = "src/assets/audios/levelsPageButton.MP3";
+  levelBtnSoundEffect.volume = 0.5;
+  levelBtnSoundEffect.classList.add("level-btn-sound-effect");
+  
   const allLevels = document.createElement("div");
+  allLevels.appendChild(levelBtnSoundEffect);
   allLevels.setAttribute("id", "all-levels-container");
 
   for (let i = 1; i <= 6; ++i) {
@@ -64,17 +69,41 @@ const addLevelsButtons = function (element) {
     level.setAttribute("id", `level${i}-button`);
     allLevels.appendChild(level);
     level.addEventListener("click", () => {
-      generateLevel(i);
+      const soundEffectButton = document.querySelector("#sound-effect-button");
+      if (soundEffectButton.getAttribute("soundEffectOn") === "true") {
+        levelBtnSoundEffect.play();
+        levelBtnSoundEffect.addEventListener("ended", () => {
+          generateLevel(i);
+        })
+      } else if (soundEffectButton.getAttribute("soundEffectOn") === "false") {
+        generateLevel(i);
+      }
     });
   }
 
-  const levelBtnSoundEffect = document.createElement("audio");
-  levelBtnSoundEffect.src = "src/assets/audios/levelsPageButton.mp3";
-  levelBtnSoundEffect.volume = 0.5;
-  levelBtnSoundEffect.classList.add("level-btn-sound-effect");
-  allLevels.appendChild(levelBtnSoundEffect);
-
   element.appendChild(allLevels);
+};
+
+const playSoundEffectLevelBtn = () => {
+  const levelBtnSoundEffect = document.querySelector(".level-btn-sound-effect");
+  levelBtnSoundEffect.play();
+  levelBtnSoundEffect.addEventListener("ended", function() {
+
+  })
+};
+
+// Sound Effect for Levels Page Buttons
+const levelsPageButtonsSoundEffect = function () {
+  const soundEffectButton = document.querySelector("#sound-effect-button");
+
+  const levelsButtons = document.querySelectorAll(".level-button");
+  levelsButtons.forEach((levelBtn) => {
+    if (soundEffectButton.getAttribute("soundEffectOn") === "true") {
+      levelBtn.addEventListener("click", playSoundEffectLevelBtn, true);
+    } else if (soundEffectButton.getAttribute("soundEffectOn") === "false") {
+      levelBtn.removeEventListener("click", playSoundEffectLevelBtn, true);
+    }
+  });
 };
 
 const generateLevel = function (level) {

@@ -29,25 +29,6 @@ const blackboardButtonsSoundEffect = function (soundEffect) {
   });
 };
 
-const playSoundEffectLevelBtn = () => {
-  const levelBtnSoundEffect = document.querySelector(".level-btn-sound-effect");
-  levelBtnSoundEffect.play();
-};
-
-// Sound Effect for Levels Page Buttons
-const levelsPageButtonsSoundEffect = function () {
-  const soundEffectButton = document.querySelector("#sound-effect-button");
-
-  const levelsButtons = document.querySelectorAll(".level-button");
-  levelsButtons.forEach((levelBtn) => {
-    if (soundEffectButton.getAttribute("soundEffectOn") === "true") {
-      levelBtn.addEventListener("click", playSoundEffectLevelBtn, true);
-    } else if (soundEffectButton.getAttribute("soundEffectOn") === "false") {
-      levelBtn.removeEventListener("click", playSoundEffectLevelBtn, true);
-    }
-  });
-};
-
 const studentClickSound = () => {
   const studentClickSound = document.querySelector(".click-student-sound");
   studentClickSound.currentTime = 0;
@@ -86,7 +67,6 @@ const endGamePopUpBtnSoundEffect = function () {
 
 export {
   blackboardButtonsSoundEffect,
-  levelsPageButtonsSoundEffect,
   handleStudentsClickSound,
   endGamePopUpBtnSoundEffect,
 };

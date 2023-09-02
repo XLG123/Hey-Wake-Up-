@@ -1101,7 +1101,6 @@ export default class GameGenerator {
   studentsClickSoundEffect() {
     const soundEffectButton = document.querySelector("#sound-effect-button");
     if (soundEffectButton.getAttribute("soundEffectOn") === "true") {
-      console.log("inside");
       handleStudentsClickSound(true);
     } else if (soundEffectButton.getAttribute("soundEffectOff") === "false") {
       handleStudentsClickSound(false);
@@ -1114,7 +1113,7 @@ export default class GameGenerator {
 
   async _endGame(level) {
     const homePageButton = document.querySelector(".fa-home");
-    homePageButton.style.visibility = "hidden";
+    homePageButton.style.display = "none";
     await delayLoop5();
     if (level === 1 || level === 2) {
       await delayLoop30();
@@ -1126,7 +1125,7 @@ export default class GameGenerator {
       await delayLoop120();
     }
 
-    homePageButton.style.visibility = "visible";
+    homePageButton.style.display = "";
 
     const unclickable = document.createElement("div");
     unclickable.setAttribute("id", "unclickable");
@@ -1209,7 +1208,7 @@ export default class GameGenerator {
 
   _replayCurrentLevel(popUpBtn, endGameSound, level) {
     popUpBtn.addEventListener("click", () => {
-      console.log(endGameSound);
+      // console.log(endGameSound);
       // endGameSound.play();
       this._removePreviousGameContent(level);
       new GameGenerator(level);
