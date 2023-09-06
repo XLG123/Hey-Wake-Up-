@@ -53,7 +53,7 @@ const handleStudentsClickSound = function (soundEffect) {
 const endGamePopUpBtnSoundEffect = function () {
   const endGameButton = document.querySelector("#end-game-popup-btn");
   if (endGameButton) {
-    const soundEffectSrc = "src/assets/audios/endGamePopUpButton.mp3";
+    const soundEffectSrc = "src/assets/audios/endGamePopUpButton.MP3";
     const endGameBtnSoundEffect = document.createElement("audio");
     endGameBtnSoundEffect.src = soundEffectSrc;
     endGameBtnSoundEffect.volumne = 0.2;
@@ -68,5 +68,4 @@ const endGamePopUpBtnSoundEffect = function () {
 export {
   blackboardButtonsSoundEffect,
   handleStudentsClickSound,
-  endGamePopUpBtnSoundEffect,
 };

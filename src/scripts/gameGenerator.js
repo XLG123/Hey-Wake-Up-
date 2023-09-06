@@ -6,10 +6,7 @@ import {
   delayLoop120,
 } from "./delayLoop";
 import { studentImgSrc } from "./rulesPage";
-import {
-  handleStudentsClickSound,
-  endGamePopUpBtnSoundEffect,
-} from "./soundEffects";
+import { handleStudentsClickSound } from "./soundEffects";
 
 export default class GameGenerator {
   constructor(level) {
@@ -1177,42 +1174,74 @@ export default class GameGenerator {
       popUpBtn.innerHTML = "Replay";
     }
 
+    const endGameSound = document.createElement("audio");
+    endGameSound.src = "src/assets/audios/endGamePopUpButton.MP3";
+    endGameSound.preload = "auto";
+    endGameSound.load();
+    
     popUpMsg.setAttribute("id", "end-game-popup-msg");
     popUpBtn.setAttribute("id", "end-game-popup-btn");
+    endGameSound.setAttribute("id", "end-game-sound");
 
     popUpContainer.appendChild(popUpMsg);
     popUpContainer.appendChild(popUpBtn);
+    popUpContainer.appendChild(endGameSound);
 
     popUpContainer.setAttribute("id", "end-game-popup-container");
 
     const game = document.querySelector("#game-frame");
     game.appendChild(popUpContainer);
 
-    endGamePopUpBtnSoundEffect();
-    const endGameSound = document.querySelector("#end-game-sound");
+    const soundEffectBtn = document.querySelector("#sound-effect-button");
+    const soundEffect = soundEffectBtn.getAttribute("soundEffectOn");
 
     if (level < 6 && success) {
-      this._goToNextLevel(popUpBtn, endGameSound, level);
+      this._goToNextLevel(popUpBtn, soundEffect);
     } else if (!success) {
-      this._replayCurrentLevel(popUpBtn, endGameSound, level);
+      this._replayCurrentLevel(popUpBtn, soundEffect);
+    }
+  }
+  
+  _playSoundEffectNextLevel = () => {
+    const endGameSound = document.querySelector("#end-game-sound");
+    endGameSound?.play();
+    endGameSound?.addEventListener("ended", () => {
+      this._removePreviousGameContent(this.level);
+      new GameGenerator(this.level + 1);
+    })
+  }
+
+  _goToNextLevel(popUpBtn, soundEffect) {
+    if (soundEffect === "true") {
+      popUpBtn.addEventListener("click", this._playSoundEffectNextLevel);
+    } else if (soundEffect === "false") {
+      popUpBtn.removeEventListener("click", this._playSoundEffectNextLevel);
+      popUpBtn.addEventListener("click", () => {
+        this._removePreviousGameContent(this.level);
+        new GameGenerator(this.level + 1);
+      })
     }
   }
 
-  _goToNextLevel(popUpBtn, endGameSound, level) {
-    popUpBtn.addEventListener("click", () => {
-      endGameSound.play();
-      this._removePreviousGameContent(level);
-      new GameGenerator(level + 1);
-    });
+  _playSoundEffectReplay = () => {
+    const endGameSound = document.querySelector("#end-game-sound");
+    endGameSound?.play();
+    endGameSound?.addEventListener("ended", () => {
+      this._removePreviousGameContent(this.level);
+      new GameGenerator(this.level);
+    })  
   }
 
-  _replayCurrentLevel(popUpBtn, endGameSound, level) {
-    popUpBtn.addEventListener("click", () => {
-      // console.log(endGameSound);
-      // endGameSound.play();
-      this._removePreviousGameContent(level);
-      new GameGenerator(level);
-    });
+  _replayCurrentLevel(popUpBtn, soundEffect) {
+    if (soundEffect === "true") {
+      popUpBtn.addEventListener("click", this._playSoundEffectReplay);
+    } else if (soundEffect === "false") {
+      popUpBtn.removeEventListener("click", this._playSoundEffectReplay);
+      popUpBtn.addEventListener("click", () => {
+        this._removePreviousGameContent(this.level);
+        new GameGenerator(this.level);
+      })
+    }
   }
 
   _removePreviousGameContent(level) {
