@@ -10,22 +10,16 @@ const delayLoop30 = function() {
   });
 }
 
+const delayLoop45 = function() {
+  return new Promise(resolve => {
+    setTimeout(() => { resolve('')}, 45000);
+  });
+}
+
 const delayLoop60 = function() {
   return new Promise(resolve => {
     setTimeout(() => { resolve('')}, 60000);
   });
 }
 
-const delayLoop90 = function() {
-  return new Promise(resolve => {
-    setTimeout(() => { resolve('')}, 90000);
-  });
-}
-
-const delayLoop120 = function() {
-  return new Promise(resolve => {
-    setTimeout(() => { resolve('')}, 120000);
-  });
-}
-
-export { delayLoop5, delayLoop30, delayLoop60, delayLoop90, delayLoop120 }
+export { delayLoop5, delayLoop30, delayLoop45, delayLoop60 }

@@ -1,9 +1,8 @@
 import {
   delayLoop5,
   delayLoop30,
-  delayLoop60,
-  delayLoop90,
-  delayLoop120,
+  delayLoop45,
+  delayLoop60
 } from "./delayLoop";
 import { studentImgSrc } from "./rulesPage";
 import { handleStudentsClickSound } from "./soundEffects";
@@ -94,18 +93,22 @@ export default class GameGenerator {
 
     let clickPoints = document.createElement("p");
     let decrementEachSec = document.createElement("p");
-    if (level === 1) {
-      clickPoints.innerHTML = "Each click: <span class='points'>+4%</span>";
-      decrementEachSec.innerHTML =
-        "Each second: <span class='points'>-4%</span>";
-    } else if (level >= 2 && level <= 4) {
+    if (level === 1 || level === 2) {
       clickPoints.innerHTML = "Each click: <span class='points'>+5%</span>";
       decrementEachSec.innerHTML =
         "Each second: <span class='points'>-5%</span>";
-    } else if (level === 5 || level === 6) {
-      clickPoints.innerHTML = "Each click: <span class='points'>+6%</span>";
+    } else if (level === 3) {
+      clickPoints.innerHTML = "Each click: <span class='points'>+5%</span>";
       decrementEachSec.innerHTML =
-        "Each second: <span class='points'>-6%</span>";
+        "Each second: <span class='points'>-4%</span>";
+    } else if (level === 4) {
+      clickPoints.innerHTML = "Each click: <span class='points'>+7%</span>";
+      decrementEachSec.innerHTML =
+        "Each second: <span class='points'>-4%</span>";
+    }else if (level === 5 || level === 6) {
+      clickPoints.innerHTML = "Each click: <span class='points'>+7%</span>";
+      decrementEachSec.innerHTML =
+        "Each second: <span class='points'>-3%</span>";
     }
 
     levelInfo.appendChild(clickPoints);
@@ -155,11 +158,9 @@ export default class GameGenerator {
     let sec = 30;
 
     if (level === 3 || level === 4) {
+      sec = 45;
+    } else if (level === 5 || level === 6) {
       sec = 60;
-    } else if (level === 5) {
-      sec = 90;
-    } else if (level === 6) {
-      sec = 120;
     }
 
     timer.innerHTML = sec;
@@ -924,19 +925,17 @@ export default class GameGenerator {
     await delayLoop5();
 
     let studentSize = 4;
-    let clickablePoints = 4;
+    let clickablePoints = 5;
 
-    if (level === 2) {
-      clickablePoints = 5;
-    } else if (level === 3) {
+    if (level === 3) {
       studentSize = 6;
       clickablePoints = 5;
     } else if (level === 4) {
       studentSize = 8;
-      clickablePoints = 5;
+      clickablePoints = 7;
     } else if (level === 5 || level === 6) {
       studentSize = 10;
-      clickablePoints = 6;
+      clickablePoints = 7;
     }
 
     for (let i = 1; i <= studentSize; ++i) {
@@ -961,11 +960,11 @@ export default class GameGenerator {
   }
 
   decrementEnergyPoints(level) {
-    let points = 4;
-    if (level === 2 || level === 3 || level === 4) {
-      points = 5;
+    let points = 5;
+    if (level === 3 || level === 4) {
+      points = 4;
     } else if (level === 5 || level === 6) {
-      points = 6;
+      points = 3;
     }
 
     this._decrement(level, points);
@@ -993,11 +992,9 @@ export default class GameGenerator {
     let stopTime = 30000;
 
     if (level === 3 || level === 4) {
+      stopTime = 45000;
+    } else if (level === 5 || level === 6) {
       stopTime = 60000;
-    } else if (level === 5) {
-      stopTime = 90000;
-    } else if (level === 6) {
-      stopTime = 120000;
     }
 
     setTimeout(function () {
@@ -1049,11 +1046,9 @@ export default class GameGenerator {
     let time = 30000;
 
     if (level === 3 || level === 4) {
+      time = 45000;
+    } else if (level === 5 || level === 6) {
       time = 60000;
-    } else if (level === 5) {
-      time = 90000;
-    } else if (level === 6) {
-      time = 120000;
     }
 
     setTimeout(function () {
@@ -1083,11 +1078,9 @@ export default class GameGenerator {
     let time = 30000;
 
     if (level === 3 || level === 4) {
+      time = 45000;
+    } else if (level === 5 || level === 6) {
       time = 60000;
-    } else if (level === 5) {
-      time = 90000;
-    } else if (level === 6) {
-      time = 120000;
     }
 
     setTimeout(function () {
@@ -1115,11 +1108,9 @@ export default class GameGenerator {
     if (level === 1 || level === 2) {
       await delayLoop30();
     } else if (level === 3 || level === 4) {
+      await delayLoop45();
+    } else if (level === 5 || level === 6) {
       await delayLoop60();
-    } else if (level === 5) {
-      await delayLoop90();
-    } else if (level === 6) {
-      await delayLoop120();
     }
 
     homePageButton.style.display = "";
