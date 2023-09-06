@@ -1,7 +1,7 @@
 # Hey! Wake Up! 
 
 ## Background  
-[Hey! Wake Up!](https://xlg123.github.io/Hey-Wake-Up-/) is a game that builds up on the concept of students taking a nap when the teachers have their backs against them. The game will have approximately 3 to 6 levels and the player will have 30 to 120 seconds to help the students wake up depending on the level they are playing. Each level will display 4 to 10 students and 1 teacher on the web page. Each student will have a energy level status showing how sleepy they are.
+[Hey! Wake Up!](https://xlg123.github.io/Hey-Wake-Up-/) is a game that builds up on the concept of students taking a nap when the teachers have their backs against them. The game will have approximately 3 to 6 levels and the player will have 30 to 60 seconds to help the students wake up depending on the level they are playing. Each level will display 4 to 10 students and 1 teacher on the web page. Each student will have a energy level status showing how sleepy they are.
 
 The game will require the player to keep clicking on the students that are falling asleep to give them more energy. After the timer is up, the teacher will turn his/her face around and looking for students that are sleeping. If a student's energy level status is below 50%, the player fails. To pass each level, the players must ensure all students have their energy above or equal to 50% when the timer ends.
 
