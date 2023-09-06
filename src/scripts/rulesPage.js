@@ -168,11 +168,11 @@ const addScrollDownSign = function (element) {
     const newPos = scrollable.scrollTop;
     const scrollDownSign = document.querySelector(".fa-arrow-down");
     if (newPos > oldPos) {
-      scrollDownSign.style.color = "rgba(82, 57, 32, 0.5)";
-      scrollDownSign.style.animationPlayState = "paused";
+      scrollDownSign?.style.color = "rgba(82, 57, 32, 0.5)";
+      scrollDownSign?.style.animationPlayState = "paused";
     } else {
-      scrollDownSign.style.color = "rgb(82, 57, 32)";
-      scrollDownSign.style.animationPlayState = "running";
+      scrollDownSign?.style.color = "rgb(82, 57, 32)";
+      scrollDownSign?.style.animationPlayState = "running";
     }
   });
 };
