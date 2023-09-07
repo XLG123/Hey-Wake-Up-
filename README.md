@@ -169,5 +169,5 @@ async _decrement(level, points) {
 - [x] Adding sound effects to every buttons in the game
 - [x] Players will be able to mute and unmute the sound effects of the buttons
 - [x] Players will be able to go from one level to another directly on the same page without going back to the home page
-- [ ] Giving players the freedom to change the theme of the game and uploading images to represent the students and the teacher
+- [ ] Giving players the freedom to change the theme of the game
 - [ ] More levels will be added.
