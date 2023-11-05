@@ -63,11 +63,12 @@ body {
   margin-right: auto;
   box-sizing: border-box;
   background-color: #e5ceb5;
+  cursor: url("../src/assets/images/cursor.png") 5 5, auto;
 }
 
 #game-title {
   margin-top: 5px;
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
 }
 
 #game-title-text {
