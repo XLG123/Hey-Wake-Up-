@@ -41,7 +41,7 @@
   .level3-students-img {
     width: 4vw;
     height: 4vw;
-    cursor: pointer;
+    cursor: url("../src/assets/images/click.png") 5 5, pointer;
     animation-name: shakelv3;
     animation-duration: 0.5s;
     animation-iteration-count: infinite;

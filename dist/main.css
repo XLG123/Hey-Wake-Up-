@@ -245,7 +245,7 @@ footer a:visited {
   bottom: 1vw;
   left: 1vw;
   color: rgba(110, 68, 59, 0.8);
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
 }
 #game-frame .fa-home:hover {
   color: #2c1b17;
@@ -800,7 +800,7 @@ footer a:visited {
   left: 1vw;
   font-size: 2.2vw;
   color: rgba(82, 57, 52, 0.55);
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
 }
 
 #levels-back-to-hp-btn:hover {
@@ -833,7 +833,7 @@ footer a:visited {
   box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   font-size: 2vw;
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
 }
 #all-levels-container .level-button:hover {
   font-weight: bold;
@@ -936,7 +936,7 @@ footer a:visited {
   font-size: 1.5vw;
   left: 2.5vw;
   color: rgba(82, 57, 52, 0.55);
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
 }
 #game-rules-container .fa-arrow-left:hover {
   color: rgb(82, 57, 52);
@@ -1022,7 +1022,7 @@ footer a:visited {
   background-color: rgba(82, 57, 52, 0.7);
   box-shadow: 0px 3px 1px 0px rgba(44, 27, 23, 0.8);
   text-align: center;
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
 }
 #end-game-popup-container #end-game-popup-btn:hover {
   color: black;
@@ -1059,7 +1059,7 @@ footer a:visited {
 #level1-students .level1-students-img, #level1-students .level2-students-img, #level2-students .level1-students-img, #level2-students .level2-students-img {
   width: 4vw;
   height: 4vw;
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
   animation-name: shake;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
@@ -1125,7 +1125,7 @@ footer a:visited {
 #level3-students .level3-students-img {
   width: 4vw;
   height: 4vw;
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
   animation-name: shakelv3;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
@@ -1178,7 +1178,7 @@ footer a:visited {
 #level4-students .level4-students-img {
   width: 4vw;
   height: 4vw;
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
   animation-name: shakelv4;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;
@@ -1234,7 +1234,7 @@ footer a:visited {
 #level5-students .level5-students-img, #level5-students .level6-students-img, #level6-students .level5-students-img, #level6-students .level6-students-img {
   width: 4vw;
   height: 4vw;
-  cursor: pointer;
+  cursor: url("../src/assets/images/click.png") 5 5, pointer;
   animation-name: shakelv5;
   animation-duration: 0.5s;
   animation-iteration-count: infinite;

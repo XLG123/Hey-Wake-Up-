@@ -16,7 +16,7 @@
     bottom: 1vw;
     left: 1vw;
     color: rgba(110, 68, 59, 0.80);
-    cursor: pointer;
+    cursor: url("../src/assets/images/click.png") 5 5, pointer;
   }
 
   .fa-home:hover {

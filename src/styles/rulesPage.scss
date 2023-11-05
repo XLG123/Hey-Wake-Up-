@@ -97,7 +97,7 @@
     font-size: 1.5vw;
     left: 2.5vw;
     color:rgba(82, 57, 52, 0.55);
-    cursor: pointer;
+    cursor: url("../src/assets/images/click.png") 5 5, pointer;
   }
 
   .fa-arrow-left:hover {
