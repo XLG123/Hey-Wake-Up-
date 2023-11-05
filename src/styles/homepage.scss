@@ -393,7 +393,7 @@
       box-shadow: none;
       color: white;
       font-weight: bold;
-      cursor: pointer;
+      cursor: url("../src/assets/images/click.png") 5 5, pointer;
     }
   }
 
@@ -420,7 +420,7 @@
     animation-name: scale-up;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-    cursor: pointer;
+    cursor: url("../src/assets/images/click.png") 5 5, pointer;
   }
 
   @keyframes scale-up {
@@ -476,7 +476,7 @@
   img {
     width: 4vw;
     height: 4vw;
-    cursor: pointer;
+    cursor: url("../src/assets/images/click.png") 5 5, pointer;
   }
 
   img:hover {
@@ -575,7 +575,7 @@
   li {
     list-style-type: none;
     display: inline;
-    cursor: pointer;
+    cursor: url("../src/assets/images/click.png") 5 5, pointer;
     padding: 5px;
   }
 
